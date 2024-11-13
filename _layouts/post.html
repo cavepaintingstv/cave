@@ -15,7 +15,7 @@ layout: default
     <ul>
       <!-- First Button -->
       {% if page.url != site.posts.first.url %}
-        <li><a href="/cave{{ site.posts.first.url }}">First</a></li>
+        <li><a href="{{ site.baseurl }}{{ site.posts.first.url }}">First</a></li>
       {% else %}
         <li><span>First</span></li>
       {% endif %}
@@ -25,8 +25,7 @@ layout: default
       {% if pagination.previous_page %}
         <li><a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a></li>
       {% else %}
-        <!-- Even if it's the first post, we still want the "Previous" button to be visible as a link, but it won't go anywhere. -->
-        <li><a href="{{ site.baseurl }}{{ site.posts.first.url }}">Previous</a></li>
+        <li><span>Previous</span></li>
       {% endif %}
       <li>|</li>
 
@@ -34,20 +33,20 @@ layout: default
       {% if pagination.next_page %}
         <li><a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a></li>
       {% else %}
-        <!-- If it's the last post, "Next" still appears but as a static link, pointing to the last post -->
-        <li><a href="{{ site.baseurl }}{{ site.posts.last.url }}">Next</a></li>
+        <li><span>Next</span></li>
       {% endif %}
       <li>|</li>
 
       <!-- Latest Button -->
       {% if page.url != site.posts.last.url %}
-        <li><a href="/cave{{ site.posts.last.url }}">Latest</a></li>
+        <li><a href="{{ site.baseurl }}{{ site.posts.last.url }}">Latest</a></li>
       {% else %}
         <li><span>Latest</span></li>
       {% endif %}
     </ul>
   </nav>
 </center>
+
 
 
 
