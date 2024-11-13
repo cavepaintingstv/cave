@@ -28,7 +28,7 @@ layout: default
       <!-- Previous Button -->
       <li>
         {% if paginator.page > 1 %}
-          <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Previous</a>
+          <a href="{{ site.baseurl }}/post/{{ paginator.page - 1 }}">Previous</a>
         {% else %}
           <span>Previous</span>
         {% endif %}
@@ -36,10 +36,10 @@ layout: default
 
       <li>|</li>
 
-      <!-- Next Button (Active on first page) -->
+      <!-- Next Button (Active only on first and middle pages) -->
       <li>
-        {% if paginator.page == 1 %}
-          <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">Next</a>
+        {% if paginator.page < paginator.total_pages %}
+          <a href="{{ site.baseurl }}/post/{{ paginator.page + 1 }}">Next</a>
         {% else %}
           <span>Next</span>
         {% endif %}
@@ -47,36 +47,15 @@ layout: default
 
       <li>|</li>
 
-      <!-- Latest Button (Active on first page) -->
+      <!-- Latest Button (Active only on first and middle pages) -->
       <li>
-        {% if paginator.page == 1 %}
+        {% if paginator.page < paginator.total_pages %}
           <a href="{{ site.baseurl }}/post/{{ paginator.total_pages }}">Latest</a>
         {% else %}
           <span>Latest</span>
         {% endif %}
       </li>
 
-      <li>|</li>
-
-      <!-- Next Button (Active on last page) -->
-      <li>
-        {% if paginator.page == paginator.total_pages %}
-          <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Previous</a>
-        {% else %}
-          <span>Previous</span>
-        {% endif %}
-      </li>
-
-      <li>|</li>
-
-      <!-- First Button (Active on last page) -->
-      <li>
-        {% if paginator.page == paginator.total_pages %}
-          <a href="{{ site.baseurl }}/post/1">First</a>
-        {% else %}
-          <span>First</span>
-        {% endif %}
-      </li>
     </ul>
   </nav>
 </center>
