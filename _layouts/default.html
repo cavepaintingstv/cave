@@ -53,12 +53,12 @@
 
       <!-- Latest Button -->
 <li>
-  {% assign latest_post_url = '/post/' | append: site.latest_post_number %}
+  {% if current_page == total_posts %}
   <!-- Check if the URL contains '/post/' and the latest post number -->
   {% if page.url contains latest_post_url %}
     Latest <!-- Display 'Latest' as static text if both conditions are true -->
   {% else %}
-    <a href="{{ site.baseurl }}{{ latest_post_url }}">Latest</a> <!-- Link to the latest post -->
+    <a href="{{ site.baseurl }}/post/{{ latest_post_url }}">Latest</a> <!-- Link to the latest post -->
   {% endif %}
 </li>
     </ul>
