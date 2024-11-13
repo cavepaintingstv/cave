@@ -16,7 +16,7 @@ layout: default
       <!-- First Button -->
       <li>
         {% if paginator.page != 1 %}
-          <a href="{{ site.baseurl }}/post/page/1">First</a>
+          <a href="{{ site.baseurl }}/post/1">First</a>
         {% else %}
           <span>First</span>
         {% endif %}
@@ -49,7 +49,7 @@ layout: default
       <!-- Latest Button -->
       <li>
         {% if pagination.next_page %}
-          <a href="{{ site.baseurl }}/post/page/{{ paginator.total_pages }}">Latest</a>
+          <a href="{{ site.baseurl }}/post/{{ paginator.total_pages }}">Latest</a>
         {% else %}
           <span>Latest</span>
         {% endif %}
