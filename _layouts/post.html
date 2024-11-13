@@ -13,6 +13,7 @@ layout: default
 <center>
   <nav>
     <ul style="list-style-type: none; display: flex; justify-content: center; gap: 10px; padding: 10px;">
+      
       <!-- First Button -->
       <li>
         {% if paginator.page != 1 %}
@@ -35,9 +36,9 @@ layout: default
 
       <li>|</li>
 
-      <!-- Next Button -->
+      <!-- Next Button (Active on first page) -->
       <li>
-        {% if paginator.page < paginator.total_pages %}
+        {% if paginator.page == 1 %}
           <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">Next</a>
         {% else %}
           <span>Next</span>
@@ -46,17 +47,40 @@ layout: default
 
       <li>|</li>
 
-      <!-- Latest Button -->
+      <!-- Latest Button (Active on first page) -->
       <li>
-        {% if paginator.page < paginator.total_pages %}
+        {% if paginator.page == 1 %}
           <a href="{{ site.baseurl }}/post/{{ paginator.total_pages }}">Latest</a>
         {% else %}
           <span>Latest</span>
         {% endif %}
       </li>
+
+      <li>|</li>
+
+      <!-- Next Button (Active on last page) -->
+      <li>
+        {% if paginator.page == paginator.total_pages %}
+          <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Previous</a>
+        {% else %}
+          <span>Previous</span>
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+      <!-- First Button (Active on last page) -->
+      <li>
+        {% if paginator.page == paginator.total_pages %}
+          <a href="{{ site.baseurl }}/post/1">First</a>
+        {% else %}
+          <span>First</span>
+        {% endif %}
+      </li>
     </ul>
   </nav>
 </center>
+
 
 
 <!-- /*Back*/ -->
