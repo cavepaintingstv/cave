@@ -1,0 +1,97 @@
+a { text-decoration: none; color: #999; }
+a:hover { text-decoration: underline; }
+
+/*Page Scaling*/
+@media (min-width: 978px) {
+body { margin: auto; width: 70%;  max-width: 960px;}
+}
+
+@media (max-width: 978px) {
+body { margin: auto; width: 95%;  max-width: 960px;}
+}
+
+/*Font Scaling*/
+/*h1*/
+@media all and (min-width: 960px) {
+h1{
+    font-size: 3em;
+  }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+h1{
+    font-size: 5vw;
+  }
+}
+
+@media all and (max-width: 599px) and (min-width: 50px) {
+h1{
+    font-size: 6vw;
+  }
+}
+
+/*Fonts*/
+p, ul { font-size: 1.5em; line-height: 1.4em; color: #333; }
+
+h1, h2, h3, h4 { font-family: 'Helvetica'; }
+h2 { font-size: 2.7em; }
+h3 { font-size: 2.3em; }
+h4 { font-size: 1.9em; }
+
+nav ul, footer ul { display: inline-block; list-style-type: none; margin: auto; width: 100%; font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
+nav ul li, footer ul li {display: inline-block; margin-right: 20px; }
+
+header { border-top: 1px solid #d5d5d5; font-size: .8em; }
+
+footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
+
+
+/*Banner*/
+  #logo-container img{
+  max-width: 960px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*Image Scaler*/
+  #img-container img{
+  max-width: 537px;
+  width: 537px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*Comic Scaler*/
+  #cmc-container img{
+  max-width: 438px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*Video Scaler*/
+
+html,body        {height:100%;}
+.wrapper         {width:80%; max-width: 640px; height:100%; margin:0 auto; background:#CCC}
+.h_iframe        {position:relative; padding-top: 56%;}
+.h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:100%;}
+
+/* Blog */
+ul.posts { margin: 0px auto 0px; font-size: 1.5em; text-align:center; }
+ul.posts li { list-style: none; display:inline-block;}
+
+/* Contact */
+.contact { margin: 0px 0px 60px; }
+.contact h1 { font-size: 3em; }
+.contact h2 { font-size: 2em; }
+.contact address, .cv .download { font-family: 'Helvetica', 'Arial', 'Sans-Serif'; }
+.contact address, .cv p { font-size: 1.2em; }
+.contact .download { float: right; font-size: .8em; text-transform: uppercase; }
+
+}
+
+
