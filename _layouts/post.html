@@ -26,8 +26,8 @@ layout: default
 
       <!-- Previous Button -->
       <li>
-        {% if pagination.previous_page %}
-          <a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a>
+        {% if paginator.page > 1 %}
+          <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Previous</a>
         {% else %}
           <span>Previous</span>
         {% endif %}
@@ -37,8 +37,8 @@ layout: default
 
       <!-- Next Button -->
       <li>
-        {% if pagination.next_page %}
-          <a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a>
+        {% if paginator.page < paginator.total_pages %}
+          <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">Next</a>
         {% else %}
           <span>Next</span>
         {% endif %}
@@ -48,7 +48,7 @@ layout: default
 
       <!-- Latest Button -->
       <li>
-        {% if pagination.next_page %}
+        {% if paginator.page < paginator.total_pages %}
           <a href="{{ site.baseurl }}/post/{{ paginator.total_pages }}">Latest</a>
         {% else %}
           <span>Latest</span>
@@ -57,6 +57,7 @@ layout: default
     </ul>
   </nav>
 </center>
+
 
 
 
