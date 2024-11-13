@@ -1,5 +1,5 @@
 name: Cave Paintings
 markdown: kramdown
-permalink: /post/:num
+permalink: /post/:title
 paginate: 5          # Number of posts per page
 paginate_path: "/post/:num/" 
