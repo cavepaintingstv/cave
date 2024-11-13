@@ -12,43 +12,52 @@ layout: default
   
 <center>
   <nav>
-    <ul>
+    <ul style="list-style-type: none; display: flex; justify-content: center; gap: 10px; padding: 10px;">
       <!-- First Button -->
-      {% if page.url != site.posts.first.url %}
-        <li><a href="{{ site.baseurl }}{{ site.posts.first.url }}">First</a></li>
-      {% else %}
-        <li><span>First</span></li>
-      {% endif %}
+      <li>
+        {% if paginator.page != 1 %}
+          <a href="{{ site.baseurl }}/cave/page/1">First</a>
+        {% else %}
+          <span>First</span>
+        {% endif %}
+      </li>
 
       <li>|</li>
 
       <!-- Previous Button -->
-      {% if pagination.previous_page %}
-        <li><a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a></li>
-      {% else %}
-        <li><span>Previous</span></li>
-      {% endif %}
+      <li>
+        {% if pagination.previous_page %}
+          <a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a>
+        {% else %}
+          <span>Previous</span>
+        {% endif %}
+      </li>
 
       <li>|</li>
 
       <!-- Next Button -->
-      {% if pagination.next_page %}
-        <li><a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a></li>
-      {% else %}
-        <li><span>Next</span></li>
-      {% endif %}
+      <li>
+        {% if pagination.next_page %}
+          <a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a>
+        {% else %}
+          <span>Next</span>
+        {% endif %}
+      </li>
 
       <li>|</li>
 
       <!-- Latest Button -->
-      {% if page.url != site.posts.last.url %}
-        <li><a href="{{ site.baseurl }}{{ site.posts.last.url }}">Latest</a></li>
-      {% else %}
-        <li><span>Latest</span></li>
-      {% endif %}
+      <li>
+        {% if pagination.next_page %}
+          <a href="{{ site.baseurl }}/cave/page/{{ paginator.total_pages }}">Latest</a>
+        {% else %}
+          <span>Latest</span>
+        {% endif %}
+      </li>
     </ul>
   </nav>
 </center>
+
 
 
 
