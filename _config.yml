@@ -3,3 +3,4 @@ markdown: kramdown
 permalink: /post/:title
 paginate: 1  # Set to the number of posts per page
 paginate_path: "/post/:num/"
+baseurl: "/cave
