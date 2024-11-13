@@ -14,13 +14,13 @@
     
       <!-- Navigation -->
     
-   <center>
+  <center>
   <nav>
     <ul>
       <!-- Home Button -->
       <li>
-        {% if page.url == {{ site.baseurl }} %}
-          <span>Home</span> <!-- Static text on the Home page -->
+        {% if page.url == "/cave/" %}
+          <span>Home</span> <!-- Static text only on the Home page -->
         {% else %}
           <a href="/cave/">Home</a> <!-- Link to Home -->
         {% endif %}
@@ -30,7 +30,7 @@
       
       <!-- About Button -->
       <li>
-        {% if page.url contains '/about/' %}
+        {% if page.url contains '/about' %}
           <span>About</span> <!-- Static text on the About page -->
         {% else %}
           <a href="/cave/about">About</a> <!-- Link to About -->
@@ -41,7 +41,7 @@
 
       <!-- Archive Button -->
       <li>
-        {% if page.url contains '/archive/' %}
+        {% if page.url contains '/archive' %}
           <span>Archive</span> <!-- Static text on the Archive page -->
         {% else %}
           <a href="/cave/archive">Archive</a> <!-- Link to Archive -->
@@ -51,17 +51,18 @@
       <li>|</li>
 
       <!-- Latest Button -->
-    <li>
+      <li>
         {% if page.url contains '/post/' %}
           <span>Latest</span> <!-- Static text when on a post page -->
         {% else %}
-          {% assign latest_post_url = site.posts.last.url %}
-          <a href="/cave{{ latest_post_url }}">Latest</a> <!-- Link to Latest post -->
+          {% assign latest_post = site.posts.last %}
+          <a href="/cave{{ latest_post.url }}">Latest</a> <!-- Link to Latest post -->
         {% endif %}
       </li>
     </ul>
   </nav>
 </center>
+
     
       <!-- Content -->
     
