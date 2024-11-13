@@ -51,9 +51,9 @@
       <li>|</li>
 
       <!-- Latest Button -->
-      <li>
-        {% if page.url contains '/post/' %}
-          <span>Latest</span> <!-- Static text when on a post page -->
+    <li>
+        {% if page.url contains '/post/' and paginator.page == paginator.total_pages %}
+          <span>Latest</span> <!-- Static text when on the latest pagination page -->
         {% else %}
           {% assign latest_post = site.posts.first %}
           <a href="/cave{{ latest_post.url }}">Latest</a> <!-- Link to Latest post -->
