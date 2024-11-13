@@ -40,14 +40,14 @@
       <li>|</li>
 
       <!-- Archive Button -->
-<li>
-  <!-- Check if the URL contains '/post/' and if the current page number matches the latest post number -->
-  {% if page.url contains '/post/' and page.url contains latest_post_number and current_page_number == site.latest_post_number %}
-    Latest <!-- Display 'Latest' as static text if both conditions are true -->
-  {% else %}
-    <a href="{{ site.baseurl }}/post/{{ site.latest_post_number }}">Latest</a> <!-- Link to the latest post -->
-  {% endif %}
-</li>
+      <li>
+        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
+        {% if page.url contains '/archive' %}
+          <span>Archive</span> <!-- Static text on the Archive page -->
+        {% else %}
+          <a href="/cave/archive">Archive</a> <!-- Link to Archive -->
+        {% endif %}
+      </li>
 
 
       <li>|</li>
