@@ -53,14 +53,11 @@
 
       <!-- Latest Button -->
 <li>
-  {% assign latest_post_number = site.posts.size %} <!-- Get the total number of posts (latest post number) -->
-  {% assign current_page_number = page.url | split: '/' | last %} <!-- Extract the page number from the URL -->
-
-  <!-- Check if the URL contains both '/blog/' and the latest post number -->
-  {% if page.url contains "/post/" and current_page_number == latest_post_number %}
-    <span>Latest</span> <!-- Static if both conditions are true -->
+  <!-- Check if the URL contains '/post/' and if the current page number matches the latest post number -->
+  {% if page.url contains '/post/' and page.url contains current_page_number and current_page_number == site.latest_post_number %}
+    <span>Latest</span> <!-- Display 'Latest' if both conditions are true -->
   {% else %}
-    <a href="{{ site.baseurl }}/post/{{ latest_post_number }}">Latest</a> <!-- Link to the latest post -->
+    <a href="{{ site.baseurl }}/post/{{ site.latest_post_number }}">Latest</a> <!-- Link to the latest post -->
   {% endif %}
 </li>
     </ul>
