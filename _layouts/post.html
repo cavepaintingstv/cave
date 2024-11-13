@@ -19,7 +19,7 @@ layout: default
         {% if paginator.page != 1 %}
           <a href="{{ site.baseurl }}/post/1">First</a>
         {% else %}
-          <span>First</span>
+          <a href="#" style="pointer-events: none; color: grey;">First</a>
         {% endif %}
       </li>
 
@@ -30,36 +30,31 @@ layout: default
         {% if paginator.page > 1 %}
           <a href="{{ site.baseurl }}/post/{{ paginator.page - 1 }}">Previous</a>
         {% else %}
-          <span>Previous</span>
+          <a href="#" style="pointer-events: none; color: grey;">Previous</a>
         {% endif %}
       </li>
 
       <li>|</li>
 
-      <!-- Next Button (Active only on first and middle pages) -->
+      <!-- Next Button -->
       <li>
         {% if paginator.page < paginator.total_pages %}
           <a href="{{ site.baseurl }}/post/{{ paginator.page + 1 }}">Next</a>
         {% else %}
-          <span>Next</span>
+          <a href="#" style="pointer-events: none; color: grey;">Next</a>
         {% endif %}
       </li>
 
       <li>|</li>
 
-      <!-- Latest Button (Active only on first and middle pages) -->
+      <!-- Latest Button -->
       <li>
         {% if paginator.page < paginator.total_pages %}
           <a href="{{ site.baseurl }}/post/{{ paginator.total_pages }}">Latest</a>
         {% else %}
-          <span>Latest</span>
+          <a href="#" style="pointer-events: none; color: grey;">Latest</a>
         {% endif %}
       </li>
-
-    </ul>
-  </nav>
-</center>
-
 
     </ul>
   </nav>
