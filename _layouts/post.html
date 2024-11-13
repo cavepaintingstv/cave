@@ -8,7 +8,7 @@ layout: default
   {{ content }}
   <br>
   
-<!-- /*Page Nav*/ -->
+<!-- Page Navigation -->
   
 <center>
   <nav>
@@ -16,11 +16,11 @@ layout: default
       
       <!-- First Button -->
       <li>
-        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
+        {% assign current_page = page.url | remove: '/post/' | remove: '/' | plus: 0 %}
         {% if current_page == 1 %}
           <span>First</span> <!-- Static text if on the first page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/1">First</a> <!-- Clickable -->
+          <a href="{{ site.baseurl }}/post/1">First</a> <!-- Link to the first post -->
         {% endif %}
       </li>
 
@@ -31,7 +31,7 @@ layout: default
         {% if current_page == 1 %}
           <span>Previous</span> <!-- Static text if on the first page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ current_page | minus: 1 }}">Previous</a> <!-- Clickable, go to the previous page -->
+          <a href="{{ site.baseurl }}/post/{{ current_page | minus: 1 }}">Previous</a> <!-- Link to the previous post -->
         {% endif %}
       </li>
 
@@ -43,7 +43,7 @@ layout: default
         {% if current_page == total_posts %}
           <span>Next</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ current_page | plus: 1 }}">Next</a> <!-- Clickable, go to the next page -->
+          <a href="{{ site.baseurl }}/post/{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next post -->
         {% endif %}
       </li>
 
@@ -54,7 +54,7 @@ layout: default
         {% if current_page == total_posts %}
           <span>Latest</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable, go to the latest post -->
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
         {% endif %}
       </li>
 
@@ -62,20 +62,7 @@ layout: default
   </nav>
 </center>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- /*Back*/ -->
-  
-  <br>
-<ul><a href="/cave/archive">Back</a><ul>
+<!-- Back Button -->
+<br>
+<ul><a href="{{ site.baseurl }}/archive">Back</a></ul>
 </div>
