@@ -16,10 +16,10 @@ layout: default
       
       <!-- First Button -->
       <li>
-        {% if paginator.page != 1 %}
-          <a href="{{ site.baseurl }}/post/1">First</a>
-        {% else %}
+        {% if page.url == "/post/1" %}
           <span>First</span> <!-- Static text if on the first page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/post/1">First</a> <!-- Clickable -->
         {% endif %}
       </li>
 
@@ -27,10 +27,10 @@ layout: default
 
       <!-- Previous Button -->
       <li>
-        {% if paginator.page != 1 %}
-          <a href="{{ site.baseurl }}/post/{{ paginator.page | minus: 1 }}">Previous</a>
-        {% else %}
+        {% if page.url == "/post/1" %}
           <span>Previous</span> <!-- Static text if on the first page -->
+        {% else %}
+          <a href="{{ site.baseurl }}{{ page.url | replace: '/post/', '/post/' | minus: 1 }}">Previous</a> <!-- Clickable -->
         {% endif %}
       </li>
 
@@ -39,10 +39,10 @@ layout: default
       <!-- Next Button -->
       <li>
         {% assign total_posts = site.posts.size %}
-        {% if paginator.page != total_posts %}
-          <a href="{{ site.baseurl }}/post/{{ paginator.page | plus: 1 }}">Next</a>
-        {% else %}
+        {% if page.url == "/post/#{total_posts}" %}
           <span>Next</span> <!-- Static text if on the last page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/post/{{ page.url | plus: 1 }}">Next</a> <!-- Clickable -->
         {% endif %}
       </li>
 
@@ -51,16 +51,17 @@ layout: default
       <!-- Latest Button -->
       <li>
         {% assign total_posts = site.posts.size %}
-        {% if paginator.page != total_posts %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a>
-        {% else %}
+        {% if page.url == "/post/#{total_posts}" %}
           <span>Latest</span> <!-- Static text if on the last page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/post/#{total_posts }}">Latest</a> <!-- Clickable -->
         {% endif %}
       </li>
 
     </ul>
   </nav>
 </center>
+
 
 
 
