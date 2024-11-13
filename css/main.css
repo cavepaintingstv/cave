@@ -89,7 +89,7 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
 }
 
 /*Video Scaler*/
-
+#vid-container img{
 html,body        {height:100%;}
 .wrapper         {width:80%; max-width: 640px; height:100%; margin:0 auto; background:#CCC}
 .h_iframe        {position:relative; padding-top: 56%;}
