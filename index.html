@@ -11,9 +11,5 @@ title: Cave Paintings
 
 			
         {% assign latest_post = site.posts | first %}
-        {% if page.url == latest_post.url %}
-          <span>Latest post »</span> <!-- Display static text on the latest post page -->
-        {% else %}
-          <div style="text-align: right;"><a href="{{ site.baseurl }}/post/{{ total_posts }}"Latest post »</a></p></div> <!-- Link to the latest post -->
-        {% endif %}
+          <div style="text-align: right;"><a href="/post/{{ total_posts }}"Latest post »</a></p></div> <!-- Link to the latest post -->
 </div>
