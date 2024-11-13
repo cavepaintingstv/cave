@@ -11,19 +11,60 @@
   
   <body>  
       <div id="logo-container"><img href="/" alt="banner" src="/cave/images/banner.jpg" border ="1"/></div>
-    <center>
-    <nav>
-<ul>
-<li><a href="/cave/">Home</a></li>
-  <li>|</li>
-<li><a href="/cave/about">About</a></li>
-  <li>|</li>
-<li><a href="/cave/archive">Archive</a></li>
-  <li>|</li>
-<li><a href="/cave{{ site.posts.first.url }}">Latest</a></li>
-      </ul>
-    </nav>
-    </center>
+    
+      <!-- Navigation -->
+    
+   <center>
+  <nav>
+    <ul>
+      <!-- Home Button -->
+      <li>
+        {% if page.url == "/" %}
+          <span>Home</span> <!-- Static text on the Home page -->
+        {% else %}
+          <a href="/cave/">Home</a> <!-- Link to Home -->
+        {% endif %}
+      </li>
+      
+      <li>|</li>
+      
+      <!-- About Button -->
+      <li>
+        {% if page.url == "/about" %}
+          <span>About</span> <!-- Static text on the About page -->
+        {% else %}
+          <a href="/cave/about">About</a> <!-- Link to About -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+      <!-- Archive Button -->
+      <li>
+        {% if page.url == "/archive" %}
+          <span>Archive</span> <!-- Static text on the Archive page -->
+        {% else %}
+          <a href="/cave/archive">Archive</a> <!-- Link to Archive -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+      <!-- Latest Button -->
+      <li>
+        {% assign latest_post_url = site.posts.last.url %}
+        {% if page.url == latest_post_url %}
+          <span>Latest</span> <!-- Static text on the Latest post page -->
+        {% else %}
+          <a href="/cave{{ latest_post_url }}">Latest</a> <!-- Link to Latest -->
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</center>
+    
+      <!-- Content -->
+    
 <div class="container">
 
   {{ content }}
