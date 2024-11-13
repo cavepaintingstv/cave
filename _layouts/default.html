@@ -41,6 +41,7 @@
 
       <!-- Archive Button -->
       <li>
+        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
         {% if page.url contains '/archive' %}
           <span>Archive</span> <!-- Static text on the Archive page -->
         {% else %}
