@@ -15,7 +15,7 @@ layout: default
     <ul>
       <!-- First Button -->
       {% if page.url != site.posts.first.url %}
-        <li><a href="{{ site.baseurl }}{{ site.posts.first.url }}">First</a></li>
+        <li><a href="{{ site.baseurl }}/cave{{ site.posts.first.url }}">First</a></li>
       {% else %}
         <li><span>First</span></li>
       {% endif %}
@@ -39,7 +39,7 @@ layout: default
 
       <!-- Latest Button -->
       {% if page.url != site.posts.last.url %}
-        <li><a href="{{ site.baseurl }}{{ site.posts.last.url }}">Latest</a></li>
+        <li><a href="{{ site.baseurl }}/cave{{ site.posts.last.url }}">Latest</a></li>
       {% else %}
         <li><span>Latest</span></li>
       {% endif %}
