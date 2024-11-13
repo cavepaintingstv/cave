@@ -25,7 +25,8 @@ layout: default
       {% if pagination.previous_page %}
         <li><a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a></li>
       {% else %}
-        <li><span>Previous</span></li>
+        <!-- Even if it's the first post, we still want the "Previous" button to be visible as a link, but it won't go anywhere. -->
+        <li><a href="{{ site.baseurl }}{{ site.posts.first.url }}">Previous</a></li>
       {% endif %}
       <li>|</li>
 
@@ -33,7 +34,8 @@ layout: default
       {% if pagination.next_page %}
         <li><a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a></li>
       {% else %}
-        <li><span>Next</span></li>
+        <!-- If it's the last post, "Next" still appears but as a static link, pointing to the last post -->
+        <li><a href="{{ site.baseurl }}{{ site.posts.last.url }}">Next</a></li>
       {% endif %}
       <li>|</li>
 
@@ -46,6 +48,7 @@ layout: default
     </ul>
   </nav>
 </center>
+
 
 
 <!-- /*Back*/ -->
