@@ -53,7 +53,7 @@
 
       <!-- Latest Button -->
  <li>
-        {% assign latest_post = site.posts | first %}
+        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
         {% if page.url == latest_post.url %}
           <span>Latest</span> <!-- Display static text on the latest post page -->
         {% else %}
