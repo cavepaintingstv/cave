@@ -14,12 +14,12 @@
     
       <!-- Navigation -->
     
-  <center>
+<center>
   <nav>
     <ul>
       <!-- Home Button -->
       <li>
-        {% if page.url == "/cave/" %}
+        {% if page.url == "/" %}
           <span>Home</span> <!-- Static text only on the Home page -->
         {% else %}
           <a href="/cave/">Home</a> <!-- Link to Home -->
@@ -55,7 +55,7 @@
         {% if page.url contains '/post/' %}
           <span>Latest</span> <!-- Static text when on a post page -->
         {% else %}
-          {% assign latest_post = site.posts.last %}
+          {% assign latest_post = site.posts.first %}
           <a href="/cave{{ latest_post.url }}">Latest</a> <!-- Link to Latest post -->
         {% endif %}
       </li>
