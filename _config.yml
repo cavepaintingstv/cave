@@ -1,6 +1,6 @@
 name: Cave Paintings
 markdown: kramdown
 permalink: /post/:title  # This defines how individual posts are structured
-paginate: 1  # One post per page
+paginate: 5 
 paginate_path: "/post/:num/"  # Pagination path should use numeric URLs like /post/1, /post/2
 baseurl: "/cave"  # This is essential for your site hosted at /cave/
