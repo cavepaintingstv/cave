@@ -7,6 +7,9 @@ layout: default
 <div class="post">
   {{ content }}
   <br>
+  
+/*Page Nav*/
+  
   {% for post in paginator.posts %}
   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <p>{{ post.excerpt }}</p>
@@ -15,24 +18,42 @@ layout: default
 <div class="pagination">
   <!-- First Page button -->
   {% if paginator.page > 1 %}
-    <a href="{{ paginator.first_page_path | default: '/' }}">First Page</a>
+    <a href="{{ paginator.first_page_path | default: '/' }}">
+      <button>First Page</button>
+    </a>
+  {% else %}
+    <button disabled>First Page</button>
   {% endif %}
 
   <!-- Previous Page button -->
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}">Prev Page</a>
+    <a href="{{ paginator.previous_page_path }}">
+      <button>Prev Page</button>
+    </a>
+  {% else %}
+    <button disabled>Prev Page</button>
   {% endif %}
 
   <!-- Next Page button -->
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}">Next Page</a>
+    <a href="{{ paginator.next_page_path }}">
+      <button>Next Page</button>
+    </a>
+  {% else %}
+    <button disabled>Next Page</button>
   {% endif %}
 
   <!-- Last Page button -->
   {% if paginator.page < paginator.total_pages %}
-    <a href="{{ paginator.page | append: paginator.total_pages | replace: paginator.page, paginator.total_pages | prepend: '/page/' }}">Latest Page</a>
+    <a href="{{ '/page/' | append: paginator.total_pages }}">
+      <button>Latest Page</button>
+    </a>
+  {% else %}
+    <button disabled>Latest Page</button>
   {% endif %}
 </div>
+  
+/*Back*/
   <br>
 <ul><a href="/cave/post">Back</a><ul>
 </div>
