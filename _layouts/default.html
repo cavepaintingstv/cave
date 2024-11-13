@@ -51,21 +51,11 @@
       <li>|</li>
 
       <!-- Latest Button -->
-      <li>
-        {% assign latest_post_number = site.posts.size %} <!-- Get the total number of posts -->
-        
-        <!-- Extract the current page number from the URL -->
-        {% assign current_page_number = page.url | split: '/' | last %}
-        
-        <!-- Check if we are on a post page and if we are on the latest post -->
-        {% if page.url contains "/post/" %}
-          {% if current_page_number == latest_post_number %}
-            <span>Latest</span> <!-- Static if on the latest post -->
-          {% else %}
-            <a href="/cave{{ site.posts.first.url }}">Latest</a> <!-- Link to Latest post -->
-          {% endif %}
+     <li>
+        {% if current_page == total_posts %}
+          <span>Latest</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="/cave{{ site.posts.first.url }}">Latest</a> <!-- Link to Latest post -->
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable, go to the latest post -->
         {% endif %}
       </li>
     </ul>
