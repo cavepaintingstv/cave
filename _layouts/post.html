@@ -50,13 +50,17 @@ layout: default
       <li>|</li>
 
       <!-- Latest Button -->
-      <li>
-        {% if current_page == total_posts %}
-          <span>Latest</span> <!-- Static text if on the last page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable, go to the latest post -->
-        {% endif %}
-      </li>
+<li>
+  {% assign total_posts = site.posts.size %} <!-- Get total number of posts -->
+  {% assign current_page = page.url | split: '/' | last %} <!-- Extract the current page number from the URL -->
+
+  <!-- Check if we are on a post page and if the current page is the latest post -->
+  {% if page.url contains "/post/" and current_page == total_posts %}
+    <span>Latest</span> <!-- Static if on the latest post page -->
+  {% else %}
+    <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
+  {% endif %}
+</li>
 
     </ul>
   </nav>
