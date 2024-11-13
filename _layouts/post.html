@@ -27,10 +27,11 @@ layout: default
 
       <!-- Previous Button -->
       <li>
-        {% if page.url == "/post/1" %}
+        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
+        {% if current_page == 1 %}
           <span>Previous</span> <!-- Static text if on the first page -->
         {% else %}
-          <a href="{{ site.baseurl }}{{ page.url | replace: '/post/', '/post/' | minus: 1 }}">Previous</a> <!-- Clickable -->
+          <a href="{{ site.baseurl }}/post/{{ current_page | minus: 1 }}">Previous</a> <!-- Clickable -->
         {% endif %}
       </li>
 
@@ -39,10 +40,10 @@ layout: default
       <!-- Next Button -->
       <li>
         {% assign total_posts = site.posts.size %}
-        {% if page.url == "/post/#{total_posts}" %}
+        {% if current_page == total_posts %}
           <span>Next</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ page.url | plus: 1 }}">Next</a> <!-- Clickable -->
+          <a href="{{ site.baseurl }}/post/{{ current_page | plus: 1 }}">Next</a> <!-- Clickable -->
         {% endif %}
       </li>
 
@@ -50,17 +51,17 @@ layout: default
 
       <!-- Latest Button -->
       <li>
-        {% assign total_posts = site.posts.size %}
-        {% if page.url == "/post/#{total_posts}" %}
+        {% if current_page == total_posts %}
           <span>Latest</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/#{total_posts }}">Latest</a> <!-- Clickable -->
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable -->
         {% endif %}
       </li>
 
     </ul>
   </nav>
 </center>
+
 
 
 
