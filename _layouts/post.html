@@ -10,76 +10,43 @@ layout: default
   
 <!-- /*Page Nav*/ -->
   
-    <center>
-    <nav>
-<ul>
-<li><a href="/cave{{ site.posts.last.url }}">First</a></li>
-  <li>|</li>
-  
- <!-- /*Prev*/ -->
-  
-<li><a href="#" onclick="navigateToPreviousPost()">Previous</a></li>
-<script>
-function navigateToPreviousPost() {
-    // Get the current URL
-    const currentUrl = window.location.href;
+  <center>
+  <nav>
+    <ul>
+      <!-- First Button -->
+      {% if page.url != site.posts.first.url %}
+        <li><a href="/cave{{ site.posts.first.url }}">First</a></li>
+      {% else %}
+        <li><span>First</span></li>
+      {% endif %}
+      <li>|</li>
 
-    // Extract the post number from the URL using a regular expression
-    const match = currentUrl.match(/\/post\/(\d+)/);
+      <!-- Previous Button -->
+      {% if pagination.previous_page %}
+        <li><a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a></li>
+      {% else %}
+        <li><span>Previous</span></li>
+      {% endif %}
+      <li>|</li>
 
-    if (match) {
-        // Convert post number to an integer and subtract 1
-        let postNumber = parseInt(match[1], 10) - 1;
+      <!-- Next Button -->
+      {% if pagination.next_page %}
+        <li><a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a></li>
+      {% else %}
+        <li><span>Next</span></li>
+      {% endif %}
+      <li>|</li>
 
-        // Ensure the post number doesn't go below 1
-        if (postNumber < 1) {
-            postNumber = 1;
-        }
+      <!-- Latest Button -->
+      {% if page.url != site.posts.last.url %}
+        <li><a href="/cave{{ site.posts.last.url }}">Latest</a></li>
+      {% else %}
+        <li><span>Latest</span></li>
+      {% endif %}
+    </ul>
+  </nav>
+</center>
 
-        // Construct the new URL with the updated post number
-        const newUrl = currentUrl.replace(/\/post\/\d+/, `/post/${postNumber}`);
-
-        // Navigate to the new URL
-        window.location.href = newUrl;
-    }
-}
-</script>
-  <li>|</li>
-
-<!-- /*Next*/ -->
-  
-<li><a href="#" onclick="navigateToNextPost()">Next</a></li>
-
-<script>
-function navigateToNextPost() {
-    // Get the current URL
-    const currentUrl = window.location.href;
-
-    // Extract the post number from the URL using a regular expression
-    const match = currentUrl.match(/\/post\/(\d+)/);
-
-    if (match) {
-        // Convert post number to an integer and add 1
-        let postNumber = parseInt(match[1], 10) + 1;
-
-        // Construct the new URL with the updated post number
-        const newUrl = currentUrl.replace(/\/post\/\d+/, `/post/${postNumber}`);
-
-        // Navigate to the new URL
-        window.location.href = newUrl;
-    }
-}
-</script>
-
-  <li>|</li>
-
-<!-- /*Latest*/ -->
-  
-<li><a href="/cave{{ site.posts.first.url }}">Latest</a></li>
-      </ul>
-    </nav>
-    </center>
-  
 <!-- /*Back*/ -->
   
   <br>
