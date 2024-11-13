@@ -57,7 +57,7 @@
         {% if page.url == latest_post.url %}
           <span>Latest</span> <!-- Display static text on the latest post page -->
         {% else %}
-          <a href="{{ latest_post.url }}">Latest</a> <!-- Link to the latest post -->
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
         {% endif %}
       </li>
     </ul>
