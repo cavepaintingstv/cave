@@ -20,7 +20,7 @@ layout: default
         {% if current_page != "1" %}
           <a href="{{ site.baseurl }}/post/1">First</a>
         {% else %}
-          <span style="color: grey; pointer-events: none;">First</span>
+          <span>First</span> <!-- Static text if on the first page -->
         {% endif %}
       </li>
 
@@ -32,7 +32,7 @@ layout: default
           {% assign prev_page = current_page | minus: 1 %}
           <a href="{{ site.baseurl }}/post/{{ prev_page }}">Previous</a>
         {% else %}
-          <span style="color: grey; pointer-events: none;">Previous</span>
+          <span>Previous</span> <!-- Static text if on the first page -->
         {% endif %}
       </li>
 
@@ -45,7 +45,7 @@ layout: default
           {% assign next_page = current_page | plus: 1 %}
           <a href="{{ site.baseurl }}/post/{{ next_page }}">Next</a>
         {% else %}
-          <span style="color: grey; pointer-events: none;">Next</span>
+          <span>Next</span> <!-- Static text if on the last page -->
         {% endif %}
       </li>
 
@@ -56,13 +56,14 @@ layout: default
         {% if current_page != total_pages %}
           <a href="{{ site.baseurl }}/post/{{ total_pages }}">Latest</a>
         {% else %}
-          <span style="color: grey; pointer-events: none;">Latest</span>
+          <span>Latest</span> <!-- Static text if on the last page -->
         {% endif %}
       </li>
 
     </ul>
   </nav>
 </center>
+
 
 
 
