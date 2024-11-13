@@ -55,6 +55,21 @@ footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
   margin: 0 auto;
 }
 
+/*Image Pixelator*/
+.pixelated-image {
+  image-rendering: pixelated; /* Firefox and most modern browsers */
+  image-rendering: crisp-edges; /* Safari */
+}
+
+/*Feature Scaler*/
+  #ftr-container img{
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /*Image Scaler*/
   #img-container img{
   max-width: 537px;
