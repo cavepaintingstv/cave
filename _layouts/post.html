@@ -40,8 +40,9 @@ layout: default
 
       <!-- Next Button -->
       <li>
-        {% assign total_pages = paginator.total_pages %}
-        {% if current_page != total_pages %}
+        {% assign current_page = page.url | split: "/" | last %}
+        {% assign total_posts = site.posts.size %}
+        {% if current_page != total_posts %}
           {% assign next_page = current_page | plus: 1 %}
           <a href="{{ site.baseurl }}/post/{{ next_page }}">Next</a>
         {% else %}
@@ -53,8 +54,10 @@ layout: default
 
       <!-- Latest Button -->
       <li>
-        {% if current_page != total_pages %}
-          <a href="{{ site.baseurl }}/post/{{ total_pages }}">Latest</a>
+        {% assign current_page = page.url | split: "/" | last %}
+        {% assign total_posts = site.posts.size %}
+        {% if current_page != total_posts %}
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a>
         {% else %}
           <span>Latest</span> <!-- Static text if on the last page -->
         {% endif %}
@@ -63,7 +66,6 @@ layout: default
     </ul>
   </nav>
 </center>
-
 
 
 
