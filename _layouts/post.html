@@ -16,7 +16,7 @@ layout: default
       <!-- First Button -->
       <li>
         {% if paginator.page != 1 %}
-          <a href="{{ site.baseurl }}/cave/page/1">First</a>
+          <a href="/cave/page/1">First</a>
         {% else %}
           <span>First</span>
         {% endif %}
@@ -27,7 +27,7 @@ layout: default
       <!-- Previous Button -->
       <li>
         {% if pagination.previous_page %}
-          <a href="{{ site.baseurl }}{{ pagination.previous_page_path }}">Previous</a>
+          <a href="/cave{{ pagination.previous_page_path }}">Previous</a>
         {% else %}
           <span>Previous</span>
         {% endif %}
@@ -38,7 +38,7 @@ layout: default
       <!-- Next Button -->
       <li>
         {% if pagination.next_page %}
-          <a href="{{ site.baseurl }}{{ pagination.next_page_path }}">Next</a>
+          <a href="/cave{{ pagination.next_page_path }}">Next</a>
         {% else %}
           <span>Next</span>
         {% endif %}
@@ -49,7 +49,7 @@ layout: default
       <!-- Latest Button -->
       <li>
         {% if pagination.next_page %}
-          <a href="{{ site.baseurl }}/cave/page/{{ paginator.total_pages }}">Latest</a>
+          <a href="/cave{{ paginator.total_pages }}">Latest</a>
         {% else %}
           <span>Latest</span>
         {% endif %}
