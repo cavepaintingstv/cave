@@ -2,4 +2,4 @@ name: Cave Paintings
 markdown: kramdown
 permalink: /post/:title
 paginate: 5  # Set to the number of posts per page
-paginate_path: "/post/page:num/"
+paginate_path: "/post:num/"
