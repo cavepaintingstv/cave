@@ -10,48 +10,67 @@ layout: default
   
 /*Page Nav*/
   
-  {% for post in paginator.posts %}
-  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-  <p>{{ post.excerpt }}</p>
-{% endfor %}
+    <center>
+    <nav>
+<ul>
+<li><a href="/cave/page/1">First</a></li>
+  <li>|</li>
+<li><a href="#" onclick="navigateToPreviousPage()">Prev</a></li>
 
-<div class="pagination">
-  <!-- First Page button -->
-  {% if paginator.page > 1 %}
-    <a href="{{ paginator.first_page_path | default: '/' }}">
-      <button>First Page</button>
-    </a>
-  {% else %}
-    <button disabled>First Page</button>
-  {% endif %}
+<script>
+function navigateToPreviousPage() {
+    // Get the current URL
+    const currentUrl = window.location.href;
 
-  <!-- Previous Page button -->
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}">
-      <button>Prev Page</button>
-    </a>
-  {% else %}
-    <button disabled>Prev Page</button>
-  {% endif %}
+    // Extract the page number from the URL using a regular expression
+    const match = currentUrl.match(/\/page\/(\d+)/);
 
-  <!-- Next Page button -->
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}">
-      <button>Next Page</button>
-    </a>
-  {% else %}
-    <button disabled>Next Page</button>
-  {% endif %}
+    if (match) {
+        // Convert page number to an integer and subtract 1
+        let pageNumber = parseInt(match[1], 10) - 1;
 
-  <!-- Last Page button -->
-  {% if paginator.page < paginator.total_pages %}
-    <a href="{{ '/page/' | append: paginator.total_pages }}">
-      <button>Latest Page</button>
-    </a>
-  {% else %}
-    <button disabled>Latest Page</button>
-  {% endif %}
-</div>
+        // Ensure the page number doesn't go below 1
+        if (pageNumber < 1) {
+            pageNumber = 1;
+        }
+
+        // Construct the new URL with the updated page number
+        const newUrl = currentUrl.replace(/\/page\/\d+/, `/page/${pageNumber}`);
+
+        // Navigate to the new URL
+        window.location.href = newUrl;
+    }
+}
+</script>
+  <li>|</li>
+<li><a href="#" onclick="navigateToNextPage()">Next</a></li>
+
+<script>
+function navigateToNextPage() {
+    // Get the current URL
+    const currentUrl = window.location.href;
+
+    // Extract the page number from the URL using a regular expression
+    const match = currentUrl.match(/\/page\/(\d+)/);
+
+    if (match) {
+        // Convert page number to an integer and add 1
+        let pageNumber = parseInt(match[1], 10) + 1;
+
+        // Construct the new URL with the updated page number
+        const newUrl = currentUrl.replace(/\/page\/\d+/, `/page/${pageNumber}`);
+
+        // Navigate to the new URL
+        window.location.href = newUrl;
+    }
+}
+</script>
+
+  <li>|</li>
+<li><a href="/cave/post/latest">Latest</a></li>
+      </ul>
+    </nav>
+    </center>
   
 /*Back*/
   <br>
