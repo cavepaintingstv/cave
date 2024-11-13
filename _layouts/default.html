@@ -52,14 +52,14 @@
       <li>|</li>
 
   <!-- Latest Button -->
- <li>
-        {% assign latest_post = site.posts | first %}
-        {% if page.url == latest_post.url %}
-          <span>Latest</span> <!-- Display static text on the latest post page -->
-        {% else %}
-          <a href="cave/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
-        {% endif %}
-      </li>
+<li>
+  {% assign latest_post = site.posts | first %}
+  {% if page.url == latest_post.url %}
+    <span>Latest</span> <!-- Display static text on the latest post page -->
+  {% else %}
+    <a href="{{ latest_post.url | prepend: site.baseurl }}">Latest</a> <!-- Link to the latest post -->
+  {% endif %}
+</li>
     </ul>
   </nav>
 </center>
