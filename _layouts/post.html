@@ -13,29 +13,31 @@ layout: default
     <center>
     <nav>
 <ul>
-<li><a href="/cave/page/1">First</a></li>
+<li><a href="/cave/post/1">First</a></li>
   <li>|</li>
-<li><a href="#" onclick="navigateToPreviousPage()">Prev</a></li>
-
+  
+/*Prev*/
+  
+<li><a href="#" onclick="navigateToPreviousPost()">Previous</a></li>
 <script>
-function navigateToPreviousPage() {
+function navigateToPreviousPost() {
     // Get the current URL
     const currentUrl = window.location.href;
 
-    // Extract the page number from the URL using a regular expression
-    const match = currentUrl.match(/\/page\/(\d+)/);
+    // Extract the post number from the URL using a regular expression
+    const match = currentUrl.match(/\/post\/(\d+)/);
 
     if (match) {
-        // Convert page number to an integer and subtract 1
-        let pageNumber = parseInt(match[1], 10) - 1;
+        // Convert post number to an integer and subtract 1
+        let postNumber = parseInt(match[1], 10) - 1;
 
-        // Ensure the page number doesn't go below 1
-        if (pageNumber < 1) {
-            pageNumber = 1;
+        // Ensure the post number doesn't go below 1
+        if (postNumber < 1) {
+            postNumber = 1;
         }
 
-        // Construct the new URL with the updated page number
-        const newUrl = currentUrl.replace(/\/page\/\d+/, `/page/${pageNumber}`);
+        // Construct the new URL with the updated post number
+        const newUrl = currentUrl.replace(/\/post\/\d+/, `/post/${postNumber}`);
 
         // Navigate to the new URL
         window.location.href = newUrl;
@@ -43,22 +45,25 @@ function navigateToPreviousPage() {
 }
 </script>
   <li>|</li>
-<li><a href="#" onclick="navigateToNextPage()">Next</a></li>
+
+  /*Next*/
+  
+<li><a href="#" onclick="navigateToNextPost()">Next</a></li>
 
 <script>
-function navigateToNextPage() {
+function navigateToNextPost() {
     // Get the current URL
     const currentUrl = window.location.href;
 
-    // Extract the page number from the URL using a regular expression
-    const match = currentUrl.match(/\/page\/(\d+)/);
+    // Extract the post number from the URL using a regular expression
+    const match = currentUrl.match(/\/post\/(\d+)/);
 
     if (match) {
-        // Convert page number to an integer and add 1
-        let pageNumber = parseInt(match[1], 10) + 1;
+        // Convert post number to an integer and add 1
+        let postNumber = parseInt(match[1], 10) + 1;
 
-        // Construct the new URL with the updated page number
-        const newUrl = currentUrl.replace(/\/page\/\d+/, `/page/${pageNumber}`);
+        // Construct the new URL with the updated post number
+        const newUrl = currentUrl.replace(/\/post\/\d+/, `/post/${postNumber}`);
 
         // Navigate to the new URL
         window.location.href = newUrl;
@@ -67,6 +72,9 @@ function navigateToNextPage() {
 </script>
 
   <li>|</li>
+
+  /*Latest*/
+  
 <li><a href="/cave/post/latest">Latest</a></li>
       </ul>
     </nav>
