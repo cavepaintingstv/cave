@@ -51,13 +51,13 @@
       <li>|</li>
 
       <!-- Latest Button -->
-      <li>
-        {% if current_page == {{ site.baseurl }}/post/total_posts %}
-          <span>Latest</span> <!-- Static text if on the last page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable, go to the latest post -->
-        {% endif %}
-      </li>
+     <li>
+  {% if current_page == site.baseurl | append: "/post/" | append: total_posts %}
+    <span>Latest</span> <!-- Static text if on the last page -->
+  {% else %}
+    <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Clickable, go to the latest post -->
+  {% endif %}
+</li>
     </ul>
   </nav>
 </center>
