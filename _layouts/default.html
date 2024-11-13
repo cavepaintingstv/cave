@@ -41,7 +41,6 @@
 
       <!-- Archive Button -->
       <li>
-        {% assign current_page = page.url | remove: '/post/' | plus: 0 %}
         {% if page.url contains '/archive' %}
           <span>Archive</span> <!-- Static text on the Archive page -->
         {% else %}
@@ -54,11 +53,12 @@
 
       <!-- Latest Button -->
 <li>
-  <!-- Check if the URL contains '/post/' and if the current page number matches the latest post number -->
-  {% if page.url contains '/post/' and page.url contains latest_post_number %}
-    <span>Latest</span> <!-- Display 'Latest' if both conditions are true -->
+  {% assign latest_post_url = '/post/' | append: site.latest_post_number %}
+  <!-- Check if the URL contains '/post/' and the latest post number -->
+  {% if page.url contains latest_post_url %}
+    Latest <!-- Display 'Latest' as static text if both conditions are true -->
   {% else %}
-    <a href="{{ site.baseurl }}/post/{{ site.latest_post }}">Latest</a> <!-- Link to the latest post -->
+    <a href="{{ site.baseurl }}{{ latest_post_url }}">Latest</a> <!-- Link to the latest post -->
   {% endif %}
 </li>
     </ul>
