@@ -21,9 +21,15 @@ layout: default
   {% if current_page == 1 %}
     <span>First</span> <!-- Static text if on the first page -->
   {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category }}/1">First</a> <!-- Link to the first post, dynamically pulls category -->
+    <a href="{{ site.baseurl }}/media/{{ category | slugify }}/1">First</a> <!-- Link to the first page, dynamically pulls category -->
   {% endif %}
 </li>
+
+<li>|</li>
+
+
+<li>|</li>
+
 
 <li>|</li>
 
@@ -58,9 +64,10 @@ layout: default
   {% if current_page == total_pages %}
     <span>Latest</span> <!-- Static text if on the last page -->
   {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category }}/{{ total_pages }}">Latest</a> <!-- Link to the last page, dynamically pulls category -->
+    <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ total_pages }}">Latest</a> <!-- Link to the last page, dynamically pulls category -->
   {% endif %}
 </li>
+
 
 
     </ul>
