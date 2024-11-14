@@ -39,9 +39,9 @@ layout: default
 
       <!-- Next Button -->
       <li>
-        {% assign total_pages = site.pages.size %}
+        {% assign total_pages = site.pages | where: "categories", category | size %}
         {% if current_page == total_pages %}
-          <span>Next</span> <!-- Static text if on the last page -->
+          <span>Next</span> <!-- Static text if on the last page of the category -->
         {% else %}
           <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next page -->
         {% endif %}
@@ -51,9 +51,8 @@ layout: default
 
       <!-- Latest Button -->
       <li>
-        {% assign total_pages = site.pages.size %}
         {% if current_page == total_pages %}
-          <span>Latest</span> <!-- Static text if on the last page -->
+          <span>Latest</span> <!-- Static text if on the last page of the category -->
         {% else %}
           <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ total_pages }}">Latest</a> <!-- Link to the last page -->
         {% endif %}
