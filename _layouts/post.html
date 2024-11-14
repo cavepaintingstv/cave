@@ -9,32 +9,29 @@ layout: default
   <br>
   
 <!-- Page Navigation -->
-  
 <center>
   <nav>
     <ul style="list-style-type: none; display: flex; justify-content: center; gap: 5px; padding: 5px;">
       
-<!-- First Button -->
-<li>
-  {% assign current_page = page.url | split: '/' | last | plus: 0 %}
-  {% assign category = page.categories | first %}
-  {% if current_page == 1 %}
-    <span>First</span> <!-- Static text if on the first page -->
-  {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category | slugify }}/1">First</a> <!-- Link to the first page, dynamically pulls category -->
-  {% endif %}
-</li>
+      <!-- First Button -->
+      <li>
+        {% assign current_page = page.url | split: '/' | last | plus: 0 %}
+        {% assign category = page.categories | first %}
+        {% if current_page == 1 %}
+          <span>First</span> <!-- Static text if on the first page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/media/{{ category | slugify }}/1">First</a> <!-- Link to the first page -->
+        {% endif %}
+      </li>
 
-<li>|</li>
-
-
+      <li>|</li>
 
       <!-- Previous Button -->
       <li>
         {% if current_page == 1 %}
           <span>Previous</span> <!-- Static text if on the first page -->
         {% else %}
-          <a href="{{ site.baseurl }}{{ current_page | minus: 1 }}">Previous</a> <!-- Link to the previous post -->
+          <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ current_page | minus: 1 }}">Previous</a> <!-- Link to the previous page -->
         {% endif %}
       </li>
 
@@ -42,34 +39,27 @@ layout: default
 
       <!-- Next Button -->
       <li>
-        {% assign total_posts = site.posts.size %}
-        {% if current_page == total_posts %}
+        {% assign total_pages = site.pages.size %}
+        {% if current_page == total_pages %}
           <span>Next</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next post -->
+          <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next page -->
         {% endif %}
       </li>
 
       <li>|</li>
 
-<!-- Latest Button -->
-<li>
-  {% assign current_page = page.url | split: '/' | last | plus: 0 %}
-  {% assign category = page.categories | first %}
-  {% if current_page == total_pages %}
-    <span>Latest</span> <!-- Static text if on the last page -->
-  {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ total_pages }}">Latest</a> <!-- Link to the last page, dynamically pulls category -->
-  {% endif %}
-</li>
-
-
+      <!-- Latest Button -->
+      <li>
+        {% assign total_pages = site.pages.size %}
+        {% if current_page == total_pages %}
+          <span>Latest</span> <!-- Static text if on the last page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/media/{{ category | slugify }}/{{ total_pages }}">Latest</a> <!-- Link to the last page -->
+        {% endif %}
+      </li>
 
     </ul>
   </nav>
 </center>
 
-<!-- Back Button -->
-<br>
-<ul><a href="{{ site.baseurl }}/archive">Back</a></ul>
-</div>
