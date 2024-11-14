@@ -37,12 +37,14 @@
         {% endif %}
       </li>
 
+      <li>|</li>
+
         <!-- Podcast Button -->
       <li>
         {% if page.url contains '/podcast' %}
-          <span>Podcast</span> <!-- Static text on the About page -->
+          <span>Podcast</span> <!-- Static text on the Podcast page -->
         {% else %}
-          <a href="{{ site.baseurl }}/about">Podcast</a> <!-- Link to About -->
+          <a href="{{ site.baseurl }}/podcast">Podcast</a> <!-- Link to Podcast -->
         {% endif %}
       </li>
 
