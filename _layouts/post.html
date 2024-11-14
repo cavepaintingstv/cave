@@ -51,6 +51,7 @@ layout: default
 
       <!-- Latest Button -->
       <li>
+        {% assign total_pages = site.pages | where: "categories", category | size %}
         {% if current_page == total_pages %}
           <span>Latest</span> <!-- Static text if on the last page of the category -->
         {% else %}
