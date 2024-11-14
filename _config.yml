@@ -4,18 +4,3 @@ permalink: "/media/:categories/:title/"  # Ensures posts are organized by catego
 paginate: 1  # Enables pagination with one post per page
 paginate_path: "/media/:categories/:num/"  # Numeric pagination within each tag
 baseurl: "/cave"  # Set this for sites hosted under /cave
-plugins:
-  - jekyll-feed
-  # _config.yml
-title: Cave Paintings
-description: F'sure
-url: https://cavepaintingsbiz.github.io/cave  # Replace with your site's URL
-author:
-  name: James
-  email: cavepaintingsbiz@gmail.com
-
-# Jekyll Feed Plugin Configuration
-feed:
-  path: feed.xml
-
-
