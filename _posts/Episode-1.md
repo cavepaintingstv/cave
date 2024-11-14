@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: Episode 1
 date: 2024-11-14
 tags: ["radio"]
