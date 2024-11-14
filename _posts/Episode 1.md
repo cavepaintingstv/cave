@@ -1,7 +1,8 @@
 ---
 layout: posts
-title: radio
+title: Episode 1
 date: 2024-11-12
+tags: ["radio"]
 ---
 <p style="font-size:15px">
 Listen up.
