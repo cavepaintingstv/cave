@@ -18,7 +18,7 @@ layout: default
       <li>
         {% assign current_page = page.url | remove: '/post/' | remove: '/' | plus: 0 %}
         {% if current_page == 1 %}
-          <span>First</span> <!-- Static text if on the first page -->
+          <span><li>‎ </li>First</span> <!-- Static text if on the first page -->
         {% else %}
           <a href="{{ site.baseurl }}/post/1">First</a> <!-- Link to the first post -->
         {% endif %}
@@ -54,7 +54,7 @@ layout: default
         {% if current_page == total_posts %}
           <span>Latest</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
+          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest<li>‎ </li></a> <!-- Link to the latest post -->
         {% endif %}
       </li>
 
