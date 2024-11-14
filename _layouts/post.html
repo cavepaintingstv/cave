@@ -15,23 +15,24 @@ layout: default
     <ul style="list-style-type: none; display: flex; justify-content: center; gap: 5px; padding: 5px;">
       
       <!-- First Button -->
-      <li>
-        {% assign current_page = page.url | remove: '/post/' | remove: '/' | plus: 0 %}
-        {% if current_page == 1 %}
-          <span>First</span> <!-- Static text if on the first page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/post/1">First</a> <!-- Link to the first post -->
-        {% endif %}
-      </li>
+ <li>
+  {% assign current_page = page.url | split: '/' | last | plus: 0 %}
+  {% if current_page == 1 %}
+    <span>First</span> <!-- Static text if on the first page -->
+  {% else %}
+    <a href="{{ site.baseurl }}/media/{{ category }}/1">First</a> <!-- Link to the first post, replace category dynamically -->
+  {% endif %}
+</li>
 
-      <li>|</li>
+<li>|</li>
+
 
       <!-- Previous Button -->
       <li>
         {% if current_page == 1 %}
           <span>Previous</span> <!-- Static text if on the first page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ current_page | minus: 1 }}">Previous</a> <!-- Link to the previous post -->
+          <a href="{{ site.baseurl }}{{ current_page | minus: 1 }}">Previous</a> <!-- Link to the previous post -->
         {% endif %}
       </li>
 
@@ -43,20 +44,20 @@ layout: default
         {% if current_page == total_posts %}
           <span>Next</span> <!-- Static text if on the last page -->
         {% else %}
-          <a href="{{ site.baseurl }}/post/{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next post -->
+          <a href="{{ site.baseurl }}{{ current_page | plus: 1 }}">Next</a> <!-- Link to the next post -->
         {% endif %}
       </li>
 
       <li>|</li>
 
       <!-- Latest Button -->
-      <li>
-        {% if current_page == total_posts %}
-          <span>Latest</span> <!-- Static text if on the last page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/post/{{ total_posts }}">Latest</a> <!-- Link to the latest post -->
-        {% endif %}
-      </li>
+ <li>
+  {% if current_page == total_pages %}
+    <span>Latest</span> <!-- Static text if on the last page -->
+  {% else %}
+    <a href="{{ site.baseurl }}/media/{{ category }}/{{ total_pages }}">Latest</a> <!-- Link to the last page -->
+  {% endif %}
+</li>
 
     </ul>
   </nav>
