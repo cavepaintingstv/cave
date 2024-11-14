@@ -1,0 +1,14 @@
+---
+layout: default
+title: Animation
+---
+<h1>Animation</h1>
+<ul class="posts">
+
+  {% for post in site.posts %}
+    {% if post.categories contains "anim" %}
+      <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+    {% endif %}
+  {% endfor %}
+    <br>
+</ul>
