@@ -17,9 +17,12 @@ layout: default
       <li>
         {% assign current_page = page.url | split: '/' | last | plus: 0 %}
         {% assign category = page.categories | first %}
-        {% assign category_pages = site.pages | where: "categories", category %}
-        {% assign total_pages = category_pages | size %}
         
+        <!-- Get the total number of posts in the current category -->
+        {% assign category_posts = site.posts | where: "categories", category %}
+        {% assign total_posts = category_posts | size %}
+        {% assign total_pages = total_posts %}
+
         {% if current_page == 1 %}
           <span>First</span> <!-- Static text if on the first page -->
         {% else %}
@@ -63,5 +66,6 @@ layout: default
     </ul>
   </nav>
 </center>
+
 
 
