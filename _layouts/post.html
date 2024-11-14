@@ -17,7 +17,7 @@ layout: default
 <!-- First Button -->
 <li>
   {% assign current_page = page.url | split: '/' | last | plus: 0 %}
-  {% assign category = page.category %}
+  {% assign category = page.categories | first %}
   {% if current_page == 1 %}
     <span>First</span> <!-- Static text if on the first page -->
   {% else %}
@@ -27,11 +27,6 @@ layout: default
 
 <li>|</li>
 
-
-<li>|</li>
-
-
-<li>|</li>
 
 
       <!-- Previous Button -->
@@ -60,7 +55,7 @@ layout: default
 <!-- Latest Button -->
 <li>
   {% assign current_page = page.url | split: '/' | last | plus: 0 %}
-  {% assign category = page.category %}
+  {% assign category = page.categories | first %}
   {% if current_page == total_pages %}
     <span>Latest</span> <!-- Static text if on the last page -->
   {% else %}
