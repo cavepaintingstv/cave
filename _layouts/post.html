@@ -17,6 +17,9 @@ layout: default
       <li>
         {% assign current_page = page.url | split: '/' | last | plus: 0 %}
         {% assign category = page.categories | first %}
+        {% assign category_pages = site.pages | where: "categories", category %}
+        {% assign total_pages = category_pages | size %}
+        
         {% if current_page == 1 %}
           <span>First</span> <!-- Static text if on the first page -->
         {% else %}
@@ -39,7 +42,6 @@ layout: default
 
       <!-- Next Button -->
       <li>
-        {% assign total_pages = site.pages | where: "categories", category | size %}
         {% if current_page == total_pages %}
           <span>Next</span> <!-- Static text if on the last page of the category -->
         {% else %}
@@ -51,7 +53,6 @@ layout: default
 
       <!-- Latest Button -->
       <li>
-        {% assign total_pages = site.pages | where: "categories", category | size %}
         {% if current_page == total_pages %}
           <span>Latest</span> <!-- Static text if on the last page of the category -->
         {% else %}
@@ -62,4 +63,5 @@ layout: default
     </ul>
   </nav>
 </center>
+
 
