@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Archive
+title: Blog
 ---
-<h1>Archive</h1>
+<h1>Blog</h1>
 <ul class="posts">
 
   {% for post in site.posts %}
-    {% if post.categories contains "post" %}
+    {% if post.categories contains "blog" %}
       <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
     {% endif %}
   {% endfor %}
