@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🎙️ Episode 2"
-date: 2024-11-14 12:33
+date: 2024-11-14
 categories: ["radio"]
 ---
 <p style="font-size:15px">
