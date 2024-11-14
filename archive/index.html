@@ -6,8 +6,9 @@ title: Archive
 <ul class="posts">
 
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+    {% if post.categories contains "post" %}
+      <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+    {% endif %}
   {% endfor %}
-    
+    <br>
 </ul>
-<br>
