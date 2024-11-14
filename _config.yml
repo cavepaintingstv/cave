@@ -1,6 +1,8 @@
 name: "Cave Paintings"
 markdown: kramdown
-permalink: "/post/:tags/"  # Ensure the permalink ends with a slash for proper URL structure
-paginate: 1  # One post per page is correct
-paginate_path: "/:tags/:num/"  # Correct format for numeric pagination within each tag
-baseurl: "/cave"  # Base URL for a site hosted at /cave/
+permalink: "/post/:categories/"  # Ensures posts are organized by categories
+paginate: 1  # Enables pagination with one post per page
+paginate_path: "/:tags/:num/"  # Numeric pagination within each tag
+baseurl: "/cave"  # Set this for sites hosted under /cave
+plugins:
+  - jekyll-paginate  # Enables pagination
