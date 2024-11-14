@@ -6,7 +6,7 @@ title: Podcast
 <ul class="posts">
 
   {% for post in site.posts %}
-    {% if post.tags contains "radio" %}
+    {% if post.categories contains "radio" %}
       <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
     {% endif %}
   {% endfor %}
