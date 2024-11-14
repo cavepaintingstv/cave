@@ -2,7 +2,7 @@ name: "Cave Paintings"
 markdown: kramdown
 permalink: "/post/:categories/"  # Ensures posts are organized by categories
 paginate: 1  # Enables pagination with one post per page
-paginate_path: "/:tags/:num/"  # Numeric pagination within each tag
+paginate_path: "/:categories/:num/"  # Numeric pagination within each tag
 baseurl: "/cave"  # Set this for sites hosted under /cave
 plugins:
   - jekyll-paginate  # Enables pagination
