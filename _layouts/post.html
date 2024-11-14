@@ -14,13 +14,14 @@ layout: default
   <nav>
     <ul style="list-style-type: none; display: flex; justify-content: center; gap: 5px; padding: 5px;">
       
-      <!-- First Button -->
- <li>
+<!-- First Button -->
+<li>
   {% assign current_page = page.url | split: '/' | last | plus: 0 %}
+  {% assign category = page.category %}
   {% if current_page == 1 %}
     <span>First</span> <!-- Static text if on the first page -->
   {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category }}/1">First</a> <!-- Link to the first post, replace category dynamically -->
+    <a href="{{ site.baseurl }}/media/{{ category }}/1">First</a> <!-- Link to the first post, dynamically pulls category -->
   {% endif %}
 </li>
 
@@ -50,14 +51,17 @@ layout: default
 
       <li>|</li>
 
-      <!-- Latest Button -->
- <li>
+<!-- Latest Button -->
+<li>
+  {% assign current_page = page.url | split: '/' | last | plus: 0 %}
+  {% assign category = page.category %}
   {% if current_page == total_pages %}
     <span>Latest</span> <!-- Static text if on the last page -->
   {% else %}
-    <a href="{{ site.baseurl }}/media/{{ category }}/{{ total_pages }}">Latest</a> <!-- Link to the last page -->
+    <a href="{{ site.baseurl }}/media/{{ category }}/{{ total_pages }}">Latest</a> <!-- Link to the last page, dynamically pulls category -->
   {% endif %}
 </li>
+
 
     </ul>
   </nav>
