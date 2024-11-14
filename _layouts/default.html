@@ -37,6 +37,17 @@
         {% endif %}
       </li>
 
+        <!-- Podcast Button -->
+      <li>
+        {% if page.url contains '/podcast' %}
+          <span>Podcast</span> <!-- Static text on the About page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/about">Podcast</a> <!-- Link to About -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
       <li>|</li>
 
       <!-- Archive Button -->
