@@ -1,6 +1,6 @@
 name: "Cave Paintings"
 markdown: kramdown
-permalink: "/post/:title/"  # Ensure the permalink ends with a slash for proper URL structure
+permalink: "/post/:tags/"  # Ensure the permalink ends with a slash for proper URL structure
 paginate: 1  # One post per page is correct
 paginate_path: "/:tags/:num/"  # Correct format for numeric pagination within each tag
 baseurl: "/cave"  # Base URL for a site hosted at /cave/
