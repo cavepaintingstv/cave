@@ -3,21 +3,13 @@ layout: default
 title: Podcast
 ---
 <h1>Podcast</h1>
+<div id="ftr-container" style="text-align: center;"><img src="{{ site.baseurl }}/images/concave.jpg" alt="Concave" border="0" width="417" height="417">
+<ul class="posts">
 
-<div id="ftr-container" style="display: flex; align-items: flex-start;">
-  <div style="flex: 0 0 auto; margin-right: 20px;">
-    <img src="{{ site.baseurl }}/images/concave.jpg" alt="Concave" border="0" width="208" height="208">
-  </div>
-  <div style="flex: 1;">
-    <ul class="posts">
-      {% for post in site.posts %}
-        {% if post.categories contains "radio" %}
-          <li>
-            <span>{{ post.date | date_to_string }}</span> <br>
-            <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-          </li><br>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-</div>
+  {% for post in site.posts %}
+    {% if post.categories contains "radio" %}
+      <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
+    {% endif %}
+  {% endfor %}
+    <br>
+</ul>
