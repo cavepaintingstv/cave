@@ -1,139 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <title>{{ page.title }}</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
     <meta name="description" content="Cave Paintings">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
-    <script>
-        // Attempt to enter fullscreen mode
-        function goFullScreen() {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.webkitRequestFullscreen) { // iOS Safari
-                document.documentElement.webkitRequestFullscreen();
-            }
-        }
-
-        // Trigger fullscreen on load
-        window.onload = function() {
-            goFullScreen();
-        }
-
-        // Prevent scrolling to hide address bar (optional)
-        document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, { passive: false });
-    </script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-        }
-        html {
-            height: 100%;
-            width: 100%;
-        }
-        /* Ensure your existing container and content fit well */
-        .container {
-            width: 100%;
-            height: auto;
-            box-sizing: border-box;
-        }
-        #logo-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+      body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
     </style>
-</head>
-
-<body>  
-    <div id="logo-container"><img href="/" alt="banner" src="{{ site.baseurl }}/images/banner.jpg" border="1"/></div>
+  </head>
+  
+  <body>  
+      <div id="logo-container">
+        <a href="/"><img alt="banner" src="{{ site.baseurl }}/images/banner.jpg" border="1"/></a>
+      </div>
     
-    <!-- Navigation -->
-    <center>
-        <nav>
-            <ul>
-                <!-- Home Button -->
-                <li>
-                    {% if page.url == "/" %}
-                        <span>‎ Home</span> <!-- Static text only on the Home page -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}/">Home</a> <!-- Link to Home -->
-                    {% endif %}
-                </li>
-                <li>|</li>
-                <!-- About Button -->
-                <li>
-                    {% if page.url contains '/about' %}
-                        <span>About</span> <!-- Static text on the About page -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}/about">About</a> <!-- Link to About -->
-                    {% endif %}
-                </li>
-                <li>|</li>
-                <!-- Animation Button -->
-                <li>
-                    {% if page.url contains '/animation' %}
-                        <span>Animation</span> <!-- Static text on the Animation -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}/animation">Animation</a> <!-- Link to Animation -->
-                    {% endif %}
-                </li>
-                <li>|</li>
-                <!-- Podcast Button -->
-                <li>
-                    {% if page.url contains '/podcast' %}
-                        <span>Podcast</span> <!-- Static text on the Podcast -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}/podcast">Podcast</a> <!-- Link to Podcast -->
-                    {% endif %}
-                </li>
-                <li>|</li>
-                <!-- Blog Button -->
-                <li>
-                    {% if page.url contains '/blog' %}
-                        <span>Blog</span> <!-- Static text on the Archive page -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}/blog">Blog</a> <!-- Link to Blog -->
-                    {% endif %}
-                </li>
-                <li>|</li>
-                <!-- Latest Button -->
-                <li>
-                    {% assign latest_post = site.posts | first %}
-                    {% if page.url == latest_post.url %}
-                        <span>Latest</span> <!-- Static text on the latest post page -->
-                    {% else %}
-                        <a href="{{ site.baseurl }}{{ latest_post.url }}">Latest‎ </a> <!-- Link to the latest post -->
-                    {% endif %}
-                </li>
-            </ul>
-        </nav>
-    </center>
+      <!-- Navigation -->
+    
+<center>
+  <nav>
+    <ul>
+      <!-- Home Button -->
+      <li>
+        {% if page.url == "/" %}
+          <span>‎ Home</span> <!-- Static text only on the Home page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/">Home</a> <!-- Link to Home -->
+        {% endif %}
+      </li>
 
-    <!-- Content -->
-    <div class="container">
-        {{ content }}
-    </div>
+      <li>|</li>
 
-    <!-- Footer -->
+      <!-- About Button -->
+      <li>
+        {% if page.url contains '/about' %}
+          <span>About</span> <!-- Static text on the About page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/about">About</a> <!-- Link to About -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+           <!-- Animation Button -->
+      <li>
+        {% if page.url contains '/animation' %}
+          <span>Animation</span> <!-- Static text on the Animation -->
+        {% else %}
+          <a href="{{ site.baseurl }}/animation">Animation</a> <!-- Link to Animation -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+        <!-- Podcast Button -->
+      <li>
+        {% if page.url contains '/podcast' %}
+          <span>Podcast</span> <!-- Static text on the Podcast -->
+        {% else %}
+          <a href="{{ site.baseurl }}/podcast">Podcast</a> <!-- Link to Podcast -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+      <!-- Blog Button -->
+      <li>
+        {% if page.url contains '/blog' %}
+          <span>Blog</span> <!-- Static text on the Archive page -->
+        {% else %}
+          <a href="{{ site.baseurl }}/blog">Blog</a> <!-- Link to Blog -->
+        {% endif %}
+      </li>
+
+      <li>|</li>
+
+      <!-- Latest Button -->
+      <li>
+        {% assign latest_post = site.posts | first %}
+        {% if page.url == latest_post.url %}
+          <span>Latest</span> <!-- Static text on the latest post page -->
+        {% else %}
+          <a href="{{ site.baseurl }}{{ latest_post.url }}">Latest‎ </a> <!-- Link to the latest post -->
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</center>
+
+      <!-- Content -->
+    
+<div class="container">
+  {{ content }}
+</div>
+
     <center>
-        <footer><br>
-            <ul>
-                <li><a href="mailto:cavepaintingsbiz@gmail.com" target="_blank"><img border="0" alt="Mail" src="/cave/images/mail.jpg" width="30" height="30"></a></li>
-                <li><a href="https://www.x.com/cavepaintingstv" target="_blank"><img border="0" alt="Twitter" src="/cave/images/twitter.jpg" width="30" height="30"></a></li>
-            </ul>
-            <br>
-        </footer>
+  <footer><br>
+   <ul>
+   <li><a href="mailto:cavepaintingsbiz@gmail.com" target="_blank"><img border="0" alt="Mail" src="/cave/images/mail.jpg" width="30" height="30"></a></li>
+   <li><a href="https://www.x.com/cavepaintingstv" target="_blank"><img border="0" alt="Twitter" src="/cave/images/twitter.jpg" width="30" height="30"></a></li>
+   </ul>
+    <br>
+  </footer>
     </center>
-</body>
+  </body>
 </html>
