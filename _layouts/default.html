@@ -6,23 +6,11 @@
     <meta name="description" content="Cave Paintings">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
-    <style>
-      body {
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-    </style>
+  
   </head>
   
   <body>  
-      <div id="logo-container">
-        <a href="/"><img alt="banner" src="{{ site.baseurl }}/images/banner.jpg" border="1"/></a>
-      </div>
+      <div id="logo-container"><img href="/" alt="banner" src="{{ site.baseurl }}/images/banner.jpg" border ="1"/></div>
     
       <!-- Navigation -->
     
@@ -73,12 +61,12 @@
 
       <li>|</li>
 
-      <!-- Blog Button -->
+      <!-- Archive Button -->
       <li>
-        {% if page.url contains '/blog' %}
-          <span>Blog</span> <!-- Static text on the Archive page -->
+        {% if page.url contains '/archive' %}
+          <span>Archive</span> <!-- Static text on the Archive page -->
         {% else %}
-          <a href="{{ site.baseurl }}/blog">Blog</a> <!-- Link to Blog -->
+          <a href="{{ site.baseurl }}/archive">Archive</a> <!-- Link to Archive -->
         {% endif %}
       </li>
 
@@ -97,12 +85,15 @@
   </nav>
 </center>
 
+
+    
       <!-- Content -->
     
 <div class="container">
-  {{ content }}
-</div>
 
+  {{ content }}
+
+</div>
     <center>
   <footer><br>
    <ul>
