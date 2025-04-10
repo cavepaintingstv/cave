@@ -40,6 +40,13 @@ h4 { font-size: 1.9em; }
 
 nav ul, footer ul { display: inline-block; list-style-type: none; margin: auto; width: 100%; font-size: 1em; font-family: 'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold; }
 nav ul li, footer ul li {display: inline-block; margin-right: 20px; }
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 0.3s ease; /* Smooths any changes */
+    z-index: 1000; /* Keeps it above other content */
+}
 
 header { border-top: 1px solid #d5d5d5; font-size: .8em; }
 
