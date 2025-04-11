@@ -24,8 +24,9 @@
         display: block;
         border: none;
         width: 100vw;
-        height: calc(100vh - env(safe-area-inset-top)); /* Adjust height for safe area */
+        height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)); /* Adjust for both top and bottom safe areas */
         margin-top: env(safe-area-inset-top); /* Offset by status bar height */
+        margin-bottom: env(safe-area-inset-bottom); /* Offset by bottom safe area */
       }
     </style>
   </head>
