@@ -1,3 +1,4 @@
+/* Links */
 a {
   text-decoration: none;
   color: #999;
@@ -76,10 +77,13 @@ h4 {
   justify-content: center;
   width: 100%;
   padding: 10px 0;
+  max-width: 100%;
+  overflow: visible;
 }
 
 nav ul {
   display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to fit screen */
   justify-content: center;
   align-items: center;
   list-style-type: none;
@@ -91,8 +95,42 @@ nav ul {
 }
 
 nav ul li {
-  display: inline-block;
   margin: 0 10px;
+}
+
+.nav-item {
+  font-size: 1em; /* Matches nav ul font-size */
+  margin: 0 10px; /* Consistent with existing li spacing */
+}
+
+.nav-item a {
+  color: #999; /* Matches existing 'a' color */
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  text-decoration: underline; /* Matches existing a:hover */
+}
+
+.nav-item span {
+  color: #666; /* Slightly darker for current page indicator */
+}
+
+.nav-divider {
+  margin: 0 5px; /* Slightly tighter for dividers */
+  font-size: 1em;
+  color: #333; /* Matches existing text color */
+  font-weight: bold; /* Matches nav ul */
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .nav-item {
+    margin: 5px 8px; /* Slightly tighter spacing */
+  }
+  .nav-divider {
+    margin: 5px 4px;
+  }
 }
 
 /* Footer */
@@ -102,119 +140,3 @@ nav ul li {
   width: 100%;
   padding: 10px 0;
   border-top: 1px solid #d5d5d5;
-  font-size: 0.8em;
-}
-
-footer ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  margin: auto;
-  padding: 0;
-  font-size: 1em;
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-  font-weight: bold;
-}
-
-footer ul li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-header {
-  border-top: 1px solid #d5d5d5;
-  font-size: 0.8em;
-}
-
-/* Banner */
-#logo-container img {
-  max-width: 960px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Image Pixelator */
-.pixelated-image {
-  image-rendering: pixelated; /* Firefox and most modern browsers */
-  image-rendering: crisp-edges; /* Safari */
-}
-
-/* Feature Scaler */
-#ftr-container img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Image Scaler */
-#img-container img {
-  max-width: 537px;
-  width: 537px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Comic Scaler */
-#cmc-container img {
-  max-width: 438px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Video Embed Scaler */
-#video-container video {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Blog */
-ul.posts {
-  margin: 0px auto 0px;
-  font-size: 1.5em;
-  text-align: center;
-}
-
-ul.posts li {
-  list-style: none;
-  display: inline-block;
-}
-
-/* Contact */
-.contact {
-  margin: 0px 0px 60px;
-}
-
-.contact h1 {
-  font-size: 3em;
-}
-
-.contact h2 {
-  font-size: 2em;
-}
-
-.contact address,
-.cv .download {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-}
-
-.contact address,
-.cv p {
-  font-size: 1.2em;
-}
-
-.contact .download {
-  float: right;
-  font-size: 0.8em;
-  text-transform: uppercase;
-}
