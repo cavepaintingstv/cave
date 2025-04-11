@@ -20,74 +20,74 @@
       <!-- Navigation -->
     
 <center>
-  <nav>
-    <ul>
-      <!-- Home Button -->
-      <li>
-        {% if page.url == "/" %}
-          <span>‎ Home</span> <!-- Static text only on the Home page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/" target="_self">Home</a> <!-- Link to Home -->
-        {% endif %}
-      </li>
+<nav>
+  <ul>
+    <!-- Home Button -->
+    <li>
+      {% if page.url == "/" %}
+        <span>‎ Home</span> <!-- Static text only on the Home page -->
+      {% else %}
+        <a href="{{ site.baseurl }}/" target="_self">Home</a> <!-- Link to Home -->
+      {% endif %}
+    </li>
 
-      <li>|</li>
+    <li>|</li>
 
-      <!-- About Button -->
-      <li>
-        {% if page.url contains '/about' %}
-          <span>About</span> <!-- Static text on the About page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/about" target="_self">About</a> <!-- Link to About -->
-        {% endif %}
-      </li>
+    <!-- About Button -->
+    <li>
+      {% if page.url contains '/about' %}
+        <span>About</span> <!-- Static text on the About page -->
+      {% else %}
+        <a href="{{ site.baseurl }}/about" target="_self">About</a> <!-- Link to About -->
+      {% endif %}
+    </li>
 
-      <li>|</li>
+    <li>|</li>
 
-           <!-- Animation Button -->
-      <li>
-        {% if page.url contains '/animation' %}
-          <span>Animation</span> <!-- Static text on the Animation -->
-        {% else %}
-          <a href="{{ site.baseurl }}/animation" target="_self">Animation</a> <!-- Link to Animation -->
-        {% endif %}
-      </li>
+    <!-- Animation Button -->
+    <li>
+      {% if page.url contains '/animation' %}
+        <span>Animation</span> <!-- Static text on the Animation -->
+      {% else %}
+        <a href="{{ site.baseurl }}/animation" target="_self">Animation</a> <!-- Link to Animation -->
+      {% endif %}
+    </li>
 
-      <li>|</li>
+    <li>|</li>
 
-        <!-- Podcast Button -->
-      <li>
-        {% if page.url contains '/podcast' %}
-          <span>Podcast</span> <!-- Static text on the Podcast -->
-        {% else %}
-          <a href="{{ site.baseurl }}/podcast" target="_self">Podcast</a> <!-- Link to Podcast -->
-        {% endif %}
-      </li>
+    <!-- Podcast Button -->
+    <li>
+      {% if page.url contains '/podcast' %}
+        <span>Podcast</span> <!-- Static text on the Podcast -->
+      {% else %}
+        <a href="{{ site.baseurl }}/podcast" target="_self">Podcast</a> <!-- Link to Podcast -->
+      {% endif %}
+    </li>
 
-      <li>|</li>
+    <li>|</li>
 
-      <!-- Archive Button -->
-      <li>
-        {% if page.url contains '/blog' %}
-          <span>Blog</span> <!-- Static text on the Archive page -->
-        {% else %}
-          <a href="{{ site.baseurl }}/blog" target="_self">Blog</a> <!-- Link to Archive -->
-        {% endif %}
-      </li>
+    <!-- Archive Button -->
+    <li>
+      {% if page.url contains '/blog' %}
+        <span>Blog</span> <!-- Static text on the Archive page -->
+      {% else %}
+        <a href="{{ site.baseurl }}/blog" target="_self">Blog</a> <!-- Link to Archive -->
+      {% endif %}
+    </li>
 
-      <li>|</li>
+    <li>|</li>
 
-      <!-- Latest Button -->
-      <li>
-        {% assign latest_post = site.posts | first %}
-        {% if page.url == latest_post.url %}
-          <span>Latest</span> <!-- Static text on the latest post page -->
-        {% else %}
-          <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">Latest‎ </a> <!-- Link to the latest post -->
-        {% endif %}
-      </li>
-    </ul>
-  </nav>
+    <!-- Latest Button -->
+    <li>
+      {% assign latest_post = site.posts | first %}
+      {% if page.url == latest_post.url %}
+        <span>Latest</span> <!-- Static text on the latest post page -->
+      {% else %}
+        <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">Latest‎ </a> <!-- Link to the latest post -->
+      {% endif %}
+    </li>
+  </ul>
+</nav>
 </center>
 
 
