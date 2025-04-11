@@ -4,7 +4,7 @@ title: Blog
 ---
 <h1>Blog</h1>
 <div style="text-align: center;">
-  <ul class="posts">
+  <ul class="posts" style="display: inline-block; text-align: left; padding: 0; margin: 0 auto;">
     {% for post in site.posts %}
       {% if post.categories contains "blog" %}
         <li><span>{{ post.date | date_to_string }}</span> <br> <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li><br>
