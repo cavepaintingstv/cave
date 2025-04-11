@@ -1,7 +1,7 @@
 /* Links */
 a {
   text-decoration: none;
-  color: #999;
+  color: #ccc;
 }
 a:hover {
   text-decoration: underline;
@@ -13,6 +13,8 @@ a:hover {
     margin: auto;
     width: 70%;
     max-width: 960px;
+    background-color: #111;
+    color: #eee;
   }
 }
 
@@ -21,6 +23,8 @@ a:hover {
     margin: auto;
     width: 95%;
     max-width: 960px;
+    background-color: #111;
+    color: #eee;
   }
 }
 
@@ -49,7 +53,7 @@ p,
 ul {
   font-size: 1.5em;
   line-height: 1.4em;
-  color: #333;
+  color: #ddd;
 }
 
 h1,
@@ -57,6 +61,7 @@ h2,
 h3,
 h4 {
   font-family: "Helvetica";
+  color: #fff;
 }
 
 h2 {
@@ -75,12 +80,13 @@ h4 {
 .main-nav {
   width: 100%;
   padding: 10px 0;
-  box-sizing: border-box; /* Ensure padding doesn’t expand width */
+  box-sizing: border-box;
+  background-color: #222;
 }
 
 nav ul {
   display: flex;
-  flex-wrap: wrap; /* Items wrap to next line */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   list-style-type: none;
@@ -89,21 +95,21 @@ nav ul {
   font-size: 1em;
   font-family: "Helvetica", "Arial", "Sans-Serif";
   font-weight: bold;
-  max-width: 100%; /* Prevent overflow */
+  max-width: 100%;
 }
 
 nav ul li {
-  margin: 0 8px; /* Reduced from 10px to fit more items */
+  margin: 0 8px;
 }
 
 .nav-item {
   font-size: 1em;
-  margin: 0 8px; /* Match nav ul li */
-  white-space: nowrap; /* Prevent text wrapping within items */
+  margin: 0 8px;
+  white-space: nowrap;
 }
 
 .nav-item a {
-  color: #999;
+  color: #ccc;
   text-decoration: none;
 }
 
@@ -112,23 +118,23 @@ nav ul li {
 }
 
 .nav-item span {
-  color: #666;
+  color: #aaa;
 }
 
 .nav-divider {
-  margin: 0 4px; /* Tighter for dividers */
+  margin: 0 4px;
   font-size: 1em;
-  color: #333;
+  color: #ddd;
   font-weight: bold;
 }
 
 /* Adjust navigation for smaller screens */
 @media (max-width: 600px) {
   nav ul {
-    justify-content: center; /* Re-center wrapped items */
+    justify-content: center;
   }
   .nav-item {
-    margin: 4px 6px; /* Tighter margins */
+    margin: 4px 6px;
   }
   .nav-divider {
     margin: 4px 3px;
@@ -137,7 +143,7 @@ nav ul li {
 
 @media (max-width: 400px) {
   .nav-item {
-    margin: 3px 5px; /* Even tighter for very small screens */
+    margin: 3px 5px;
   }
   .nav-divider {
     margin: 3px 2px;
@@ -150,8 +156,10 @@ nav ul li {
   justify-content: center;
   width: 100%;
   padding: 10px 0;
-  border-top: 1px solid #d5d5d5;
+  border-top: 1px solid #444;
   font-size: 0.8em;
+  background-color: #111;
+  color: #ccc;
 }
 
 footer ul {
@@ -172,8 +180,10 @@ footer ul li {
 }
 
 header {
-  border-top: 1px solid #d5d5d5;
+  border-top: 1px solid #444;
   font-size: 0.8em;
+  background-color: #111;
+  color: #eee;
 }
 
 /* Banner */
@@ -232,6 +242,7 @@ ul.posts {
   margin: 0px auto 0px;
   font-size: 1.5em;
   text-align: center;
+  color: #ddd;
 }
 
 ul.posts li {
@@ -242,6 +253,7 @@ ul.posts li {
 /* Contact */
 .contact {
   margin: 0px 0px 60px;
+  color: #ddd;
 }
 
 .contact h1 {
@@ -266,4 +278,5 @@ ul.posts li {
   float: right;
   font-size: 0.8em;
   text-transform: uppercase;
+  color: #bbb;
 }
