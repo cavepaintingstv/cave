@@ -1,50 +1,116 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cave Paintings</title>
-    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Cave Paintings">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
-
-    <!-- iOS Web App Settings -->
+    <!-- Tell iOS this is a web app -->
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Customize the status bar appearance -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
     <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        background: black; /* Matches content background */
+      /* Ensure no borders except for safe-area handling */
+      body, div, nav, ul, li, img, a, span {
+        border: none !important;
       }
-      #content {
-        display: block;
-        border: none;
-        width: 100vw;
-        height: calc(100vh - env(safe-area-inset-top)); /* Adjust for top safe area */
-        margin-top: env(safe-area-inset-top); /* Offset by status bar height */
-        overflow: auto; /* Enable scrolling like iframe with scrolling="yes" */
+      /* Respect safe area for iPhone status bar */
+      body {
+        padding-top: env(safe-area-inset-top);
       }
     </style>
   </head>
-  <body>
-    <div id="content"></div>
-    <script>
-      fetch('https://cavepaintingstv.github.io/cave/')
-        .then(response => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.text();
-        })
-        .then(data => {
-          document.getElementById('content').innerHTML = data;
-        })
-        .catch(error => {
-          console.error('Error loading content:', error);
-          document.getElementById('content').innerHTML = '<p>Error loading content.</p>';
-        });
-    </script>
+  
+  <body>  
+    <div id="logo-container">
+      <img href="/" alt="banner" src="{{ site.baseurl }}/images/banner.png"/>
+    </div>
+    
+    <!-- Navigation -->
+    <div style="text-align: center;">
+      <nav class="main-nav" style="background: none;">
+        <ul class="nav-list">
+          <!-- Home Button -->
+          <li class="nav-item">
+            {% if page.url == "/" %}
+              <span>Home</span>
+            {% else %}
+              <a href="{{ site.baseurl }}/" target="_self">Home</a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- About Button -->
+          <li class="nav-item">
+            {% if page.url contains '/about' %}
+              <span>About</span>
+            {% else %}
+              <a href="{{ site.baseurl }}/about" target="_self">About</a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Animation Button -->
+          <li class="nav-item">
+            {% if page.url contains '/animation' %}
+              <span>Animation</span>
+            {% else %}
+              <a href="{{ site.baseurl }}/animation" target="_self">Animation</a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Podcast Button -->
+          <li class="nav-item">
+            {% if page.url contains '/podcast' %}
+              <span>Podcast</span>
+            {% else %}
+              <a href="{{ site.baseurl }}/podcast" target="_self">Podcast</a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Blog Button -->
+          <li class="nav-item">
+            {% if page.url contains '/blog' %}
+              <span>Blog</span>
+            {% else %}
+              <a href="{{ site.baseurl }}/blog" target="_self">Blog</a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Latest Button -->
+          <li class="nav-item">
+            {% assign latest_post = site.posts | first %}
+            {% if page.url == latest_post.url %}
+              <span>Latest</span>
+            {% else %}
+              <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">Latest</a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Content -->
+    <div class="container">
+      {{ content }}
+    </div>
+    <br>
+    <div style="text-align: center;">
+      <footer class="footer">
+        <ul class="footer-list">
+          <li>
+            <a href="mailto:cavepaintingsbiz@gmail.com" target="_blank">
+              <img alt="Mail" src="{{ site.baseurl }}/images/mail.png" width="30" height="30">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.x.com/cavepaintingstv" target="_blank">
+              <img alt="Twitter" src="{{ site.baseurl }}/images/X.png" width="30" height="30">
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <br>
+    <br>
   </body>
 </html>
