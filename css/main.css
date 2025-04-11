@@ -1,6 +1,21 @@
 /* Global Styles */
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   background-color: #000; /* Black background */
+}
+
+/* Iframe Styles */
+iframe {
+  display: block;
+  border: none;
+  width: 100vw;
+  height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)); /* Adjust for top and bottom safe areas */
+  margin-top: env(safe-area-inset-top); /* Offset by status bar height */
+  margin-bottom: env(safe-area-inset-bottom); /* Offset by bottom safe area */
 }
 
 /* Links */
