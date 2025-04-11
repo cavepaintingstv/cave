@@ -18,23 +18,33 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-        background: black; /* Matches iframe page background */
+        background: black; /* Matches content background */
       }
-      iframe {
+      #content {
         display: block;
         border: none;
         width: 100vw;
-        height: calc(100vh - env(safe-area-inset-top)); /* Only adjust for top safe area */
+        height: calc(100vh - env(safe-area-inset-top)); /* Adjust for top safe area */
         margin-top: env(safe-area-inset-top); /* Offset by status bar height */
+        overflow: auto; /* Enable scrolling like iframe with scrolling="yes" */
       }
     </style>
   </head>
   <body>
-    <iframe 
-      src="https://cavepaintingstv.github.io/cave/" 
-      title="Cave Paintings" 
-      allowfullscreen 
-      scrolling="yes">
-    </iframe>
+    <div id="content"></div>
+    <script>
+      fetch('https://cavepaintingstv.github.io/cave/')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('content').innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error loading content:', error);
+          document.getElementById('content').innerHTML = '<p>Error loading content.</p>';
+        });
+    </script>
   </body>
 </html>
