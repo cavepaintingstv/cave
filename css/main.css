@@ -39,18 +39,21 @@ a:active {
 @media all and (min-width: 960px) {
   h1 {
     font-size: 3em;
+    color: #fff; /* White title */
   }
 }
 
 @media all and (max-width: 959px) and (min-width: 600px) {
   h1 {
     font-size: 5vw;
+    color: #fff; /* White title */
   }
 }
 
 @media all and (max-width: 599px) and (min-width: 50px) {
   h1 {
     font-size: 6vw;
+    color: #fff; /* White title */
   }
 }
 
@@ -59,7 +62,7 @@ p,
 ul {
   font-size: 1.5em;
   line-height: 1.4em;
-  color: #333;
+  color: #ccc; /* Lighter grey content text */
 }
 
 h1,
@@ -71,14 +74,17 @@ h4 {
 
 h2 {
   font-size: 2.7em;
+  color: #ccc; /* Lighter grey content text */
 }
 
 h3 {
   font-size: 2.3em;
+  color: #ccc; /* Lighter grey content text */
 }
 
 h4 {
   font-size: 1.9em;
+  color: #ccc; /* Lighter grey content text */
 }
 
 /* Navigation */
@@ -260,10 +266,12 @@ ul.posts li {
 
 .contact h1 {
   font-size: 3em;
+  color: #fff; /* White title */
 }
 
 .contact h2 {
   font-size: 2em;
+  color: #ccc; /* Lighter grey content text */
 }
 
 .contact address,
@@ -274,6 +282,7 @@ ul.posts li {
 .contact address,
 .cv p {
   font-size: 1.2em;
+  color: #ccc; /* Lighter grey content text */
 }
 
 .contact .download {
