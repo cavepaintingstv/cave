@@ -27,7 +27,7 @@
         {% if page.url == "/" %}
           <span>‎ Home</span> <!-- Static text only on the Home page -->
         {% else %}
-          <a href="{{ site.baseurl }}/">Home</a> <!-- Link to Home -->
+          <a href="{{ site.baseurl }}/" target="_self">Home</a> <!-- Link to Home -->
         {% endif %}
       </li>
 
@@ -38,7 +38,7 @@
         {% if page.url contains '/about' %}
           <span>About</span> <!-- Static text on the About page -->
         {% else %}
-          <a href="{{ site.baseurl }}/about">About</a> <!-- Link to About -->
+          <a href="{{ site.baseurl }}/about" target="_self">About</a> <!-- Link to About -->
         {% endif %}
       </li>
 
@@ -49,7 +49,7 @@
         {% if page.url contains '/animation' %}
           <span>Animation</span> <!-- Static text on the Animation -->
         {% else %}
-          <a href="{{ site.baseurl }}/animation">Animation</a> <!-- Link to Animation -->
+          <a href="{{ site.baseurl }}/animation" target="_self">Animation</a> <!-- Link to Animation -->
         {% endif %}
       </li>
 
@@ -60,7 +60,7 @@
         {% if page.url contains '/podcast' %}
           <span>Podcast</span> <!-- Static text on the Podcast -->
         {% else %}
-          <a href="{{ site.baseurl }}/podcast">Podcast</a> <!-- Link to Podcast -->
+          <a href="{{ site.baseurl }}/podcast" target="_self">Podcast</a> <!-- Link to Podcast -->
         {% endif %}
       </li>
 
@@ -71,7 +71,7 @@
         {% if page.url contains '/archive' %}
           <span>Archive</span> <!-- Static text on the Archive page -->
         {% else %}
-          <a href="{{ site.baseurl }}/archive">Archive</a> <!-- Link to Archive -->
+          <a href="{{ site.baseurl }}/archive" target="_self">Archive</a> <!-- Link to Archive -->
         {% endif %}
       </li>
 
@@ -83,7 +83,7 @@
         {% if page.url == latest_post.url %}
           <span>Latest</span> <!-- Static text on the latest post page -->
         {% else %}
-          <a href="{{ site.baseurl }}{{ latest_post.url }}">Latest‎ </a> <!-- Link to the latest post -->
+          <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">Latest‎ </a> <!-- Link to the latest post -->
         {% endif %}
       </li>
     </ul>
