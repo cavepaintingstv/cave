@@ -28,8 +28,13 @@
         display: block;
         border: none;
         width: 100vw;
-        height: calc(100vh - env(safe-area-inset-top));
-        margin-top: env(safe-area-inset-top);
+        height: calc(100vh - env(safe-area-inset-top)); /* Only account for top inset */
+        margin: 0; /* Explicitly remove any margins */
+        position: absolute;
+        top: env(safe-area-inset-top); /* Offset only for top safe area */
+        left: 0;
+        bottom: 0; /* Ensure it stretches to the bottom */
+        right: 0;
       }
     </style>
   </head>
