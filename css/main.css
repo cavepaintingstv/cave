@@ -1,16 +1,20 @@
+/* Global Styles */
+body {
+  background-color: #000; /* Black background */
+}
+
 /* Links */
 a {
   text-decoration: none;
-  color: #ff4500; /* Infrared orange for all links */
+  color: #999;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #ff4500; /* Maintain infrared orange on hover */
 }
 
 a:active {
-  color: #ff4500; /* Already set to infrared orange, kept for consistency */
+  color: #ff4500; /* Infrared-ish orange */
 }
 
 /* Page Scaling */
@@ -109,21 +113,20 @@ nav ul li {
 }
 
 .nav-item a {
-  color: #ff4500; /* Infrared orange for nav links */
+  color: #999;
   text-decoration: none;
 }
 
 .nav-item a:hover {
   text-decoration: underline;
-  color: #ff4500; /* Maintain infrared orange on hover */
 }
 
 .nav-item a:active {
-  color: #ff4500; /* Maintain infrared orange on active */
+  color: #ff4500;
 }
 
 .nav-item span {
-  color: #666; /* Non-clickable spans remain unchanged */
+  color: #666;
 }
 
 .nav-divider {
@@ -182,21 +185,6 @@ footer ul li {
   margin: 0 10px;
 }
 
-footer ul li a {
-  color: #ff4500; /* Infrared orange for footer links */
-  text-decoration: none;
-}
-
-footer ul li a:hover {
-  text-decoration: underline;
-  color: #ff4500; /* Maintain infrared orange on hover */
-}
-
-footer ul li a:active {
-  color: #ff4500; /* Maintain infrared orange on active */
-}
-
-/* Header */
 header {
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
@@ -292,17 +280,4 @@ ul.posts li {
   float: right;
   font-size: 0.8em;
   text-transform: uppercase;
-}
-
-.contact .download a {
-  color: #ff4500; /* Infrared orange for download link */
-}
-
-.contact .download a:hover {
-  text-decoration: underline;
-  color: #ff4500; /* Maintain infrared orange on hover */
-}
-
-.contact .download a:active {
-  color: #ff4500; /* Maintain infrared orange on active */
 }
