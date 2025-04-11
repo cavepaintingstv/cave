@@ -11,6 +11,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <!-- Apple Touch Icon for Home Screen -->
+    <link rel="apple-touch-icon" href="/images/cave paintings hand.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/cave paintings hand.png">
+
     <style>
       html, body {
         margin: 0;
@@ -18,14 +22,14 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-        background: black; /* Matches iframe page background */
+        background: black;
       }
       iframe {
         display: block;
         border: none;
         width: 100vw;
-        height: calc(100vh - env(safe-area-inset-top)); /* Only adjust for top safe area */
-        margin-top: env(safe-area-inset-top); /* Offset by status bar height */
+        height: calc(100vh - env(safe-area-inset-top));
+        margin-top: env(safe-area-inset-top);
       }
     </style>
   </head>
