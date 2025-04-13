@@ -68,20 +68,20 @@
             {% endif %}
           </li>
           <li class="nav-divider">|</li>
-          <!-- Podcast Button -->
-          <li class="nav-item">
-            {% if page.url contains '/podcast' %}
-              <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" class="podcast-button" width="86.8" height="21" style="image-rendering: pixelated;">
-            {% else %}
-              <a href="{{ site.baseurl }}/podcast" target="_self">
-                <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" class="podcast-button" width="86.8" height="21" 
-                     style="image-rendering: pixelated;"
-                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'" 
-                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'" 
-                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
-              </a>
-            {% endif %}
-          </li>
+    <!-- Podcast Button -->
+<li class="nav-item">
+  {% if page.url contains '/podcast' or page.url contains '/radio' %}
+    <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" class="podcast-button" width="86.8" height="21" style="image-rendering: pixelated;">
+  {% else %}
+    <a href="{{ site.baseurl }}/podcast" target="_self">
+      <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" class="podcast-button" width="86.8" height="21" 
+           style="image-rendering: pixelated;"
+           onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'" 
+           onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'" 
+           onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
+    </a>
+  {% endif %}
+</li>
           <li class="nav-divider">|</li>
           <!-- Blog Button -->
           <li class="nav-item">
