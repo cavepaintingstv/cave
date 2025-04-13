@@ -6,7 +6,7 @@ body {
 /* Links */
 a {
   text-decoration: none;
-  color: #08087F; /* Changed to requested color */
+  color: #999;
 }
 
 a:hover {
@@ -15,6 +15,13 @@ a:hover {
 
 a:active {
   color: #ff4500; /* Infrared-ish orange */
+}
+
+/* Disabled Links */
+a[disabled], a.disabled {
+  color: #08087F; /* Color for disabled links */
+  pointer-events: none; /* Prevents interaction */
+  cursor: default;
 }
 
 /* Page Scaling */
@@ -72,20 +79,7 @@ h4 {
   font-family: "Helvetica";
 }
 
-h2 {
-  font-size: 2.7em;
-  color: #ccc; /* Lighter grey content text */
-}
-
-h3 {
-  font-size: 2.3em;
-  color: #ccc; /* Lighter grey content text */
-}
-
-h4 {
-  font-size: 1.9em;
-  color: #ccc; /* Lighter grey content text */
-}
+h '
 
 /* Navigation */
 .main-nav {
@@ -119,7 +113,7 @@ nav ul li {
 }
 
 .nav-item a {
-  color: #08087F; /* Changed to requested color */
+  color: #999;
   text-decoration: none;
 }
 
@@ -129,6 +123,13 @@ nav ul li {
 
 .nav-item a:active {
   color: #ff4500;
+}
+
+/* Disabled Navigation Links */
+.nav-item a[disabled], .nav-item a.disabled {
+  color: #08087F; /* Color for disabled nav links */
+  pointer-events: none;
+  cursor: default;
 }
 
 .nav-item span {
@@ -191,6 +192,13 @@ footer ul li {
   margin: 0 10px;
 }
 
+/* Disabled Footer Links */
+footer ul li a[disabled], footer ul li a.disabled {
+  color: #08087F; /* Color for disabled footer links */
+  pointer-events: none;
+  cursor: default;
+}
+
 header {
   border-top: 1px solid #d5d5d5;
   font-size: 0.8em;
@@ -225,68 +233,4 @@ header {
   max-width: 537px;
   width: 537px;
   height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Comic Scaler */
-#cmc-container img {
-  max-width: 438px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Video Embed Scaler */
-#video-container video {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Blog */
-ul.posts {
-  margin: 0px auto 0px;
-  font-size: 1.5em;
-  text-align: center;
-}
-
-ul.posts li {
-  list-style: none;
-  display: inline-block;
-}
-
-/* Contact */
-.contact {
-  margin: 0px 0px 60px;
-}
-
-.contact h1 {
-  font-size: 3em;
-  color: #fff; /* White title */
-}
-
-.contact h2 {
-  font-size: 2em;
-  color: #ccc; /* Lighter grey content text */
-}
-
-.contact address,
-.cv .download {
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-}
-
-.contact address,
-.cv p {
-  font-size: 1.2em;
-  color: #ccc; /* Lighter grey content text */
-}
-
-.contact .download {
-  float: right;
-  font-size: 0.8em;
-  text-transform: uppercase;
-}
+  display
