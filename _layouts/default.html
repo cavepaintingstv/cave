@@ -14,154 +14,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   </head>
   
-<body>  
-  <!-- Audio element for the click sound -->
-  <audio id="clickSound" src="{{ site.baseurl }}/images/click.wav" preload="auto"></audio>
-
-  <div id="logo-container">
-    <img href="/" alt="banner" src="{{ site.baseurl }}/images/banner.png"/>
-  </div>
-  
-  <!-- Navigation -->
-  <div style="text-align: center;">
-    <nav class="main-nav" style="background: none;">
-      <ul class="nav-list">
-        <!-- Home Button -->
-        <li class="nav-item">
-          {% if page.url == "/" %}
-            <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" class="home-button" width="57.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}/" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" class="home-button" width="57.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-        <li class="nav-divider">|</li>
-        <!-- About Button -->
-        <li class="nav-item">
-          {% if page.url contains '/about' %}
-            <img src="{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png" alt="About" class="about-button" width="57.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}/about" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/ABOUT-UP.png" alt="About" class="about-button" width="57.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-        <li class="nav-divider">|</li>
-        <!-- Animation Button -->
-        <li class="nav-item">
-          {% if page.url contains '/animation' %}
-            <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" class="animation-button" width="86.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}/animation" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/ANIMATION-UP.png" alt="Animation" class="animation-button" width="86.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-        <li class="nav-divider">|</li>
-        <!-- Podcast Button -->
-        <li class="nav-item">
-          {% if page.url contains '/podcast' %}
-            <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" class="podcast-button" width="86.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}/podcast" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" class="podcast-button" width="86.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-        <li class="nav-divider">|</li>
-        <!-- Blog Button -->
-        <li class="nav-item">
-          {% if page.url contains '/blog' %}
-            <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}/blog" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" class="blog-button" width="57.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-        <li class="nav-divider">|</li>
-        <!-- Latest Button -->
-        <li class="nav-item">
-          {% assign latest_post = site.posts | first %}
-          {% if page.url == latest_post.url %}
-            <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" class="latest-button" width="57.8" height="21" style="image-rendering: pixelated;">
-          {% else %}
-            <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self" onclick="playClickSound()">
-              <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" class="latest-button" width="57.8" height="21" 
-                   style="image-rendering: pixelated;"
-                   onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'" 
-                   onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'" 
-                   onmouseout="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'">
-            </a>
-          {% endif %}
-        </li>
-      </ul>
-    </nav>
-  </div>
-  
-  <!-- Content -->
-  <div class="container">
-    {{ content }}
-  </div>
-  <br>
-  
+  <body>  
+    <div id="logo-container">
+      <img href="/" alt="banner" src="{{ site.baseurl }}/images/banner.png"/>
+    </div>
+    
+    <!-- Navigation -->
+    <div style="text-align: center;">
+      <nav class="main-nav" style="background: none;">
+        <ul class="nav-list">
+          <!-- Home Button -->
+          <li class="nav-item">
+            {% if page.url == "/" %}
+              <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" class="home-button" width="57.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}/" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" class="home-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- About Button -->
+          <li class="nav-item">
+            {% if page.url contains '/about' %}
+              <img src="{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png" alt="About" class="about-button" width="57.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}/about" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/ABOUT-UP.png" alt="About" class="about-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Animation Button -->
+          <li class="nav-item">
+            {% if page.url contains '/animation' %}
+              <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" class="animation-button" width="86.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}/animation" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/ANIMATION-UP.png" alt="Animation" class="animation-button" width="86.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Podcast Button -->
+          <li class="nav-item">
+            {% if page.url contains '/podcast' %}
+              <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" class="podcast-button" width="86.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}/podcast" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" class="podcast-button" width="86.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Blog Button -->
+          <li class="nav-item">
+            {% if page.url contains '/blog' %}
+              <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}/blog" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" class="blog-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+          <li class="nav-divider">|</li>
+          <!-- Latest Button -->
+          <li class="nav-item">
+            {% assign latest_post = site.posts | first %}
+            {% if page.url == latest_post.url %}
+              <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" class="latest-button" width="57.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" class="latest-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'">
+              </a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Content -->
+    <div class="container">
+      {{ content }}
+    </div>
+    <br>
   <!-- Footer -->
-  <div style="text-align: center;">
-    <footer class="footer">
-      <ul class="footer-list">
-        <li>
-          <a href="mailto:cavepaintingsbiz@gmail.com" target="_blank">
-            <img border="0" alt="Mail" src="{{ site.baseurl }}/images/mail.png" width="30" height="30">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.x.com/cavepaintingstv" target="_blank">
-            <img border="0" alt="Twitter" src="{{ site.baseurl }}/images/X.png" width="30" height="30">
-          </a>
-        </li>
-        <li>
-          <a href="https://discord.gg/kmAkVZ8heZ" target="_blank">
-            <img border="0" alt="Discord" src="{{ site.baseurl }}/images/discord.png" width="30" height="30">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.patreon.com/glasscake" target="_blank">
-            <img border="0" alt="Patreon" src="{{ site.baseurl }}/images/patreon.png" width="30" height="30">
-          </a>
-        </li>
-      </ul>
-    </footer>
-  </div>
-  <br>
-
-  <!-- JavaScript to play the click sound -->
-  <script>
-    function playClickSound() {
-      var sound = document.getElementById("clickSound");
-      sound.currentTime = 0; // Reset to start to allow rapid clicks
-      sound.play();
-    }
-  </script>
-</body>
+<div style="text-align: center;">
+  <footer class="footer">
+    <ul class="footer-list">
+      <li>
+        <a href="mailto:cavepaintingsbiz@gmail.com" target="_blank">
+          <img border="0" alt="Mail" src="{{ site.baseurl }}/images/mail.png" width="30" height="30">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.x.com/cavepaintingstv" target="_blank">
+          <img border="0" alt="Twitter" src="{{ site.baseurl }}/images/X.png" width="30" height="30">
+        </a>
+      </li>
+      <li>
+        <a href="https://discord.gg/kmAkVZ8heZ" target="_blank">
+          <img border="0" alt="Discord" src="{{ site.baseurl }}/images/discord.png" width="30" height="30">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.patreon.com/glasscake" target="_blank">
+          <img border="0" alt="Patreon" src="{{ site.baseurl }}/images/patreon.png" width="30" height="30">
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+    <br>
+  </body>
 </html>
