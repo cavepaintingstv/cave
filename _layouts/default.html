@@ -26,9 +26,14 @@
           <!-- Home Button -->
           <li class="nav-item">
             {% if page.url == "/" %}
-              <span>Home</span>
+              <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" class="home-button" width="57.8" height="21">
             {% else %}
-              <a href="{{ site.baseurl }}/" target="_self">Home</a>
+              <a href="{{ site.baseurl }}/" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" class="home-button" width="57.8" height="21" 
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'">
+              </a>
             {% endif %}
           </li>
           <li class="nav-divider">|</li>
@@ -102,6 +107,6 @@
         </ul>
       </footer>
     </div>
-      <br>
+    <br>
   </body>
 </html>
