@@ -82,9 +82,14 @@
           <li class="nav-item">
             {% assign latest_post = site.posts | first %}
             {% if page.url == latest_post.url %}
-              <span>Latest</span>
+              <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" class="latest-button" width="57.8" height="21">
             {% else %}
-              <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">Latest</a>
+              <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" class="latest-button" width="57.8" height="21" 
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'">
+              </a>
             {% endif %}
           </li>
         </ul>
