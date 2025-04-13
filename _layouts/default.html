@@ -26,10 +26,11 @@
           <!-- Home Button -->
           <li class="nav-item">
             {% if page.url == "/" %}
-              <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" class="home-button" width="57.8" height="21">
+              <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" class="home-button" width="57.8" height="21" style="image-rendering: pixelated;">
             {% else %}
               <a href="{{ site.baseurl }}/" target="_self">
                 <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" class="home-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
                      onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'" 
                      onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'" 
                      onmouseout="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'">
@@ -40,24 +41,20 @@
           <!-- About Button -->
           <li class="nav-item">
             {% if page.url contains '/about' %}
-              <img src="{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png" alt="About" class="about-button" width="57.8" height="21">
+              <span>About</span>
             {% else %}
-              <a href="{{ site.baseurl }}/about" target="_self">
-                <img src="{{ site.baseurl }}/images/buttons/ABOUT-UP.png" alt="About" class="about-button" width="57.8" height="21" 
-                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png'" 
-                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'" 
-                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'">
-              </a>
+              <a href="{{ site.baseurl }}/about" target="_self">About</a>
             {% endif %}
           </li>
           <li class="nav-divider">|</li>
           <!-- Animation Button -->
           <li class="nav-item">
             {% if page.url contains '/animation' %}
-              <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" class="animation-button" width="86.8" height="21">
+              <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" class="animation-button" width="86.8" height="21" style="image-rendering: pixelated;">
             {% else %}
               <a href="{{ site.baseurl }}/animation" target="_self">
                 <img src="{{ site.baseurl }}/images/buttons/ANIMATION-UP.png" alt="Animation" class="animation-button" width="86.8" height="21" 
+                     style="image-rendering: pixelated;"
                      onmousedown="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png'" 
                      onmouseup="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'" 
                      onmouseout="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'">
@@ -68,19 +65,26 @@
           <!-- Podcast Button -->
           <li class="nav-item">
             {% if page.url contains '/podcast' %}
-              <span>Podcast</span>
+              <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" class="podcast-button" width="57.8" height="21" style="image-rendering: pixelated;">
             {% else %}
-              <a href="{{ site.baseurl }}/podcast" target="_self">Podcast</a>
+              <a href="{{ site.baseurl }}/podcast" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" class="podcast-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
+              </a>
             {% endif %}
           </li>
           <li class="nav-divider">|</li>
           <!-- Blog Button -->
           <li class="nav-item">
             {% if page.url contains '/blog' %}
-              <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21">
+              <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21" style="image-rendering: pixelated;">
             {% else %}
               <a href="{{ site.baseurl }}/blog" target="_self">
                 <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" class="blog-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
                      onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'" 
                      onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'" 
                      onmouseout="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'">
@@ -92,10 +96,11 @@
           <li class="nav-item">
             {% assign latest_post = site.posts | first %}
             {% if page.url == latest_post.url %}
-              <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" class="latest-button" width="57.8" height="21">
+              <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" class="latest-button" width="57.8" height="21" style="image-rendering: pixelated;">
             {% else %}
               <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">
                 <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" class="latest-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
                      onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'" 
                      onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'" 
                      onmouseout="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'">
