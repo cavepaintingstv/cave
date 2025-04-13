@@ -74,9 +74,15 @@
           <!-- Blog Button -->
           <li class="nav-item">
             {% if page.url contains '/blog' %}
-              <span>Blog</span>
+              <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21" style="image-rendering: pixelated;">
             {% else %}
-              <a href="{{ site.baseurl }}/blog" target="_self">Blog</a>
+              <a href="{{ site.baseurl }}/blog" target="_self">
+                <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" class="blog-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'">
+              </a>
             {% endif %}
           </li>
           <li class="nav-divider">|</li>
