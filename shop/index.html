@@ -1,0 +1,54 @@
+---
+layout: default
+title: About
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cave Paintings</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="description" content="Cave Paintings">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
+
+  <!-- iOS Web App Settings -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Apple Touch Icon for Home Screen -->
+  <link rel="apple-touch-icon" href="https://cavepaintingstv.github.io/cave/images/cph.png">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    iframe {
+      display: block;
+      border: none;
+      width: 100vw;
+      height: calc(100vh - env(safe-area-inset-top));
+      margin: 0;
+      position: absolute;
+      top: env(safe-area-inset-top);
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+  <body>
+    <iframe 
+      src="https://cavepaintings-shop.fourthwall.com/" 
+      title="Cave Paintings" 
+      allowfullscreen 
+      scrolling="yes">
+    </iframe>
+  </body>
+</html>
+</div> 
