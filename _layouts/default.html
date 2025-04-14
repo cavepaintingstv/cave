@@ -97,6 +97,21 @@
               </a>
             {% endif %}
           </li>
+                 <li class="nav-divider">|</li>
+          <!-- Blog Button -->
+          <li class="nav-item">
+            {% if page.url contains '/merch' %}
+              <img src="{{ site.baseurl }}/images/buttons/MERCH-DOWN.png" alt="Blog" class="blog-button" width="57.8" height="21" style="image-rendering: pixelated;">
+            {% else %}
+              <a href="https://cavepaintings-shop.fourthwall.com/" target="_blank">
+                <img src="{{ site.baseurl }}/images/buttons/MERCH-UP.png" alt="Merch" class="merch-button" width="57.8" height="21" 
+                     style="image-rendering: pixelated;"
+                     onmousedown="this.src='{{ site.baseurl }}/images/buttons/MERCH-DOWN.png'" 
+                     onmouseup="this.src='{{ site.baseurl }}/images/buttons/MERCH-UP.png'" 
+                     onmouseout="this.src='{{ site.baseurl }}/images/buttons/MERCH-UP.png'">
+              </a>
+            {% endif %}
+          </li>
           <li class="nav-divider">|</li>
           <!-- Latest Button -->
           <li class="nav-item">
