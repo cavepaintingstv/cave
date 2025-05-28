@@ -3,4 +3,5 @@ markdown: kramdown
 permalink: "/media/:categories/:title/"  # Ensures posts are organized by categories
 paginate: 1  # Enables pagination with one post per page
 paginate_path: "/media/:categories/:num/"  # Numeric pagination within each tag
-baseurl: "/cave"  # Set this for sites hosted under /cave
+baseurl: ""  # Set this for sites hosted under /cave
+url: "https://www.cavepaintings.net"  # Set to your custom domain
