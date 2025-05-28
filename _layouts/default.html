@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>{{ page.title | default: "Cave Paintings" }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Cave Paintings">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/cph.png">
-    <!-- Tell iOS this is a web app -->
+    <!-- Favicon for Apple and Android -->
+    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/favicon/favicon.svg">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/images/favicon/favicon-96x96.png">
+    <link rel="manifest" href="{{ site.baseurl }}/images/favicon/site.webmanifest">
+    <!-- iOS Web App Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Optional: Customize the status bar appearance -->
+    <meta name="apple-mobile-web-app-title" content="Cave Paintings">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Ensure the viewport is set for mobile responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="{{ site.baseurl }}/images/favicon/site.webmanifest" />
+    <!-- Inline CSS for toolbar spacing -->
+    <style>
+      #logo-container {
+        padding-top: env(safe-area-inset-top, 60px);
+      }
+    </style>
   </head>
   
   <body>  
