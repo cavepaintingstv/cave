@@ -3,14 +3,15 @@
   <head>
     <title>{{ page.title | default: "Cave Paintings" }}</title>
     <!-- Push Notifications -->
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "f117ccbe-e9c7-401e-b601-2da818c02879",
-    });
-  });
+  <!-- Include OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <!-- Link your main JavaScript file -->
+  <script src="{{ site.baseurl }}/js/main.js"></script> <!-- Adjust path if app.js is in /js/app.js -->
+  <!-- Link manifest.json for PWA installability -->
+  <link rel="manifest" href="{{ site.baseurl }}manifest.json">
+  <!-- Optional: Add a button for users to enable notifications -->
+  <button id="enable-notifications">Enable Notifications</button>
+  <!-- Your existing HTML content -->
 </script>
     <!-- Styling/CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
