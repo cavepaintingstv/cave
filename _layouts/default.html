@@ -2,6 +2,16 @@
 <html>
   <head>
     <title>{{ page.title | default: "Cave Paintings" }}</title>
+    <!-- Push Notifications -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "f117ccbe-e9c7-401e-b601-2da818c02879",
+    });
+  });
+</script>
     <!-- Styling/CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Cave Paintings">
