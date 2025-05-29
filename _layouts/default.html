@@ -6,7 +6,17 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js"></script>
     <!-- Push Notifications -->
-    <button id="enable-notifications">Enable Push Notifications</button>
+    <title>Your PWA</title>
+  <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+</head>
+<body>
+  <h1>Your GitHub Pages Site</h1>
+  <button id="enable-notifications">Enable Push Notifications</button>
+  <!-- Load Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js"></script>
+  <!-- Load main.js -->
+  <script src="{{ site.baseurl }}/js/main.js" type="module"></script>
     <!-- Styling/CSS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Cave Paintings">
