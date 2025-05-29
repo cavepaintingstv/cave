@@ -1,0 +1,32 @@
+name: Notify on New Markdown Post
+on:
+  push:
+    paths:
+      - '**.md' # Trigger on Markdown file changes
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install axios
+      - name: Send Notification
+        env:
+          ONESIGNAL_APP_ID: ${{ secrets.f117ccbe-e9c7-401e-b601-2da818c02879 }}
+          ONESIGNAL_API_KEY: ${{ secrets.nolg25lzyuognksp3pfplt7uo }}
+        run: |
+          node -e "
+          const axios = require('axios');
+          axios.post('https://onesignal.com/api/v1/notifications', {
+            app_id: process.env.ONESIGNAL_APP_ID,
+            included_segments: ['Subscribed Users'],
+            contents: { en: 'New post published! Check it out!' },
+            url: 'https://cavepaintingstv.github.io/cave' // Replace with your GitHub Pages URL
+          }, {
+            headers: { Authorization: 'Basic ${process.env.ONESIGNAL_API_KEY}' }
+          }).then(() => console.log('Notification sent')).catch(err => console.error(err));
+          "
