@@ -7,3 +7,5 @@ baseurl: ""  # Set this for sites hosted under /cave
 url: "https://www.cavepaintings.net"  # Set to your custom domain
 include:
   - manifest.json
+include:
+  - sw.js
