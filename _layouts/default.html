@@ -63,7 +63,7 @@
         {% if page.url == "/" %}
           <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/" target="_self">
+          <a href="{{ site.baseurl }}/">
             <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" width="57.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'"
@@ -78,7 +78,7 @@
         {% if page.url contains '/about' %}
           <img src="{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png" alt="About" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/about" target="_self">
+          <a href="{{ site.baseurl }}/about">
             <img src="{{ site.baseurl }}/images/buttons/ABOUT-UP.png" alt="About" width="57.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'"
@@ -93,7 +93,7 @@
         {% if page.url contains '/blog' %}
           <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/blog" target="_self">
+          <a href="{{ site.baseurl }}/blog">
             <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" width="57.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'"
@@ -108,7 +108,7 @@
         {% if page.url contains '/animation' %}
           <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" width="86.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/animation" target="_self">
+          <a href="{{ site.baseurl }}/animation">
             <img src="{{ site.baseurl }}/images/buttons/ANIMATION-UP.png" alt="Animation" width="86.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'"
@@ -123,7 +123,7 @@
         {% if page.url contains '/podcast' or page.url contains '/radio' %}
           <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" width="86.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/podcast" target="_self">
+          <a href="{{ site.baseurl }}/podcast">
             <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" width="86.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'"
@@ -169,7 +169,7 @@
         {% if page.url == latest_post.url %}
           <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}{{ latest_post.url }}" target="_self">
+          <a href="{{ site.baseurl }}{{ latest_post.url }}">
             <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" width="57.8" height="21"
                  onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'"
