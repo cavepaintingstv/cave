@@ -42,15 +42,20 @@ title: Cave Paintings
 
     // Pusher Beams Subscription
     const beamsClient = new PusherPushNotifications.Client({
-        instanceId: 'YOUR_INSTANCE_ID', // Replace with your Pusher Beams instance ID
+        instanceId: 'YOUR_PUSHER_BEAMS_INSTANCE_ID', // Replace with your Pusher Beams instance ID
     });
 
     async function subscribeToPush() {
         try {
-            await beamsClient.start();
-            await beamsClient.addDeviceInterest('new-posts');
-            console.log('Subscribed to push notifications');
-            alert('Notifications enabled!');
+            const permission = await Notification.requestPermission();
+            if (permission === 'granted') {
+                await beamsClient.start();
+                await beamsClient.addDeviceInterest('new-posts');
+                console.log('Subscribed to push notifications');
+                alert('Notifications enabled! You will be notified of new posts.');
+            } else {
+                alert('Notification permission denied.');
+            }
         } catch (error) {
             console.error('Subscription failed:', error);
             alert('Failed to enable notifications. Please try again.');
