@@ -5,62 +5,10 @@ title: Cave Paintings
 <!--Content-->
 <div class="blurb">
     <h1></h1><br>
-    <div id="ftr-container" style="text-align: center;">
-        <img src="{{ site.baseurl }}/images/assets/Trio.png" alt="Interlopers" border="1" width="3972" height="3172">
-    </div>
+    <div id="ftr-container" style="text-align: center;"><img src="{{ site.baseurl }}/images/assets/Trio.png" alt="Interlopers" border="1" width="3972" height="3172">
 
     {% assign latest_post = site.posts | first %}
     <div style="text-align: right;">
         <p><a href="{{ site.baseurl }}{{ latest_post.url }}">Latest post »</a></p> <!-- Link to the latest post -->
     </div>
-
-    <!-- Push Notification Subscription Button -->
-    <div style="text-align: center; margin-top: 20px;">
-        <button id="subscribeButton">Enable Notifications</button>
-    </div>
-    <!-- iOS-Specific Prompt -->
-    <div id="iosPrompt" style="text-align: center; margin-top: 10px; display: none;">
-        <p>Add this PWA to your Home Screen to receive notifications (Safari, iOS 16.4+).</p>
-    </div>
 </div>
-
-<!-- Pusher Beams SDK -->
-<script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
-<!-- Inline JavaScript for Service Worker and Pusher Beams -->
-<script>
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('{{ site.baseurl }}/service-worker.js')
-            .then((registration) => console.log('Service Worker registered'))
-            .catch((error) => console.error('Service Worker registration failed:', error));
-    }
-
-    // iOS Prompt
-    if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
-        document.getElementById('iosPrompt').style.display = 'block';
-    }
-
-    // Pusher Beams Subscription
-    const beamsClient = new PusherPushNotifications.Client({
-        instanceId: 'YOUR_PUSHER_BEAMS_INSTANCE_ID', // Replace with your Pusher Beams instance ID
-    });
-
-    async function subscribeToPush() {
-        try {
-            const permission = await Notification.requestPermission();
-            if (permission === 'granted') {
-                await beamsClient.start();
-                await beamsClient.addDeviceInterest('new-posts');
-                console.log('Subscribed to push notifications');
-                alert('Notifications enabled! You will be notified of new posts.');
-            } else {
-                alert('Notification permission denied.');
-            }
-        } catch (error) {
-            console.error('Subscription failed:', error);
-            alert('Failed to enable notifications. Please try again.');
-        }
-    }
-
-    document.getElementById('subscribeButton').addEventListener('click', subscribeToPush);
-</script>

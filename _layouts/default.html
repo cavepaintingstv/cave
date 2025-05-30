@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--Pusher Beams-->
-  <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
   <!-- Debug: Head section start -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
@@ -284,17 +282,5 @@
       }
     });
   </script>
-  <!--Pusher Beams-->
-<script src="https://js.pusher.com/beams/2.1.0/push-notifications-cdn.js"></script>
-<script>
-  const beamsClient = new PusherPushNotifications.Client({
-    instanceId: '6039fb8c-7983-4a01-81d5-66a0c9eb91db',
-  });
-
-  beamsClient.start()
-    .then(() => beamsClient.addDeviceInterest('hello'))
-    .then(() => console.log('Successfully registered and subscribed!'))
-    .catch(console.error);
-</script>
 </body>
 </html>
