@@ -20,20 +20,20 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
   <meta property="og:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
-  <meta property="og:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}"> <!-- Updated: Uses custom domain -->
-  <meta property="og:image:type" content="image/png"> <!-- Added: Specifies image type -->
-  <meta property="og:image:width" content="1200"> <!-- Added: Image width for better rendering -->
-  <meta property="og:image:height" content="630"> <!-- Added: Image height for better rendering -->
-  <meta property="og:url" content="{{ site.url | default: 'https://cavepaintings.net' }}{{ page.url | default: '' }}"> <!-- Updated: Ensures custom domain -->
+  <meta property="og:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="{{ site.url | default: 'https://cavepaintings.net' }}{{ page.url | default: '' }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cave Paintings">
-  <meta name="theme-color" content="#FD0054"> <!-- Added: Sets Discord embed color (pink, matching your branding) -->
+  <meta name="theme-color" content="#FD0054">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
   <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
-  <meta name="twitter:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}"> <!-- Updated: Uses custom domain -->
+  <meta name="twitter:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
   <meta name="twitter:site" content="@cavepaintingstv">
 
   <!-- Styles -->
@@ -50,6 +50,13 @@
     }
     .nav-item img {
       image-rendering: pixelated;
+    }
+    /* Added: Prevent text selection and context menu */
+    body {
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      touch-action: manipulation;
     }
   </style>
 </head>
@@ -145,9 +152,9 @@
         {% else %}
           <a href="https://www.patreon.com/glasscake" target="_blank">
             <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'">
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -226,26 +233,52 @@
     </ul>
   </footer>
 
-  <!-- Disable Right-Click and Long-Press on Links -->
+  <!-- Disable Right-Click and Long-Press -->
   <script>
-    // Disable right-click context menu
+    // Prevent right-click context menu
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
 
-    // Disable long-press context menu on mobile for links
+    // Prevent long-press context menu on mobile devices
     document.addEventListener('touchstart', function(e) {
-      if (e.target.tagName === 'A') {
-        e.target.dataset.touchStart = Date.now();
-      }
-    });
+      const startTime = Date.now();
+      const target = e.target.closest('a') || e.target;
+      target.dataset.touchStart = startTime;
+    }, { passive: false });
 
     document.addEventListener('touchend', function(e) {
-      if (e.target.tagName === 'A') {
-        const touchDuration = Date.now() - (e.target.dataset.touchStart || 0);
-        if (touchDuration > 500) {
-          e.preventDefault();
-        }
+      const target = e.target.closest('a') || e.target;
+      const touchDuration = Date.now() - (parseInt(target.dataset.touchStart) || 0);
+      if (touchDuration > 500) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, { passive: false });
+
+    // Ensure tap works for PWA by allowing default touch behavior for short taps
+    document.addEventListener('touchmove', function(e) {
+      const target = e.target.closest('a') || e.target;
+      const touchDuration = Date.now() - (parseInt(target.dataset.touchStart) || 0);
+      if (touchDuration > 500) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Handle PWA-specific touch behavior
+    window.addEventListener('load', function() {
+      if ('serviceWorker' in navigator && navigator.standalone) {
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function(e) {
+            const touchDuration = Date.now() - (parseInt(this.dataset.touchStart) || 0);
+            if (touchDuration < 500) {
+              // Allow normal navigation for short taps
+              return true;
+            }
+            e.preventDefault();
+            return false;
+          }, { passive: false });
+        });
       }
     });
   </script>
