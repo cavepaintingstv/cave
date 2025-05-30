@@ -1,4 +1,4 @@
-importScripts("https://js.pusher.com/beams/service-worker.js");
+importScripts('https://js.pusher.com/beams/1.0/push-notifications-cdn.js');
 
 self.addEventListener('push', (event) => {
   let data = { title: 'New Post', body: 'A new Markdown post is available!' };
@@ -7,11 +7,11 @@ self.addEventListener('push', (event) => {
   }
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '/path/to/icon-192x192.png',
+    icon: '{{ site.baseurl }}/images/assets/icon-192x192.png',
   });
 });
 
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  event.waitUntil(clients.openWindow('/'));
+  event.waitUntil(clients.openWindow('{{ site.baseurl }}/'));
 });
