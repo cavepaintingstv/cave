@@ -196,61 +196,6 @@
   <div class="container">
     {{ content }}
   </div>
-  <!-- Share Button -->
-  <!-- Share Button -->
-<div class="share-wrapper" style="position: relative; display: inline-block; margin-top: 1.5rem;">
-  <button id="share-toggle" style="cursor: pointer; background: none; border: none;">
-    <img src="{{ site.baseurl | default: '' }}/images/share.png" alt="Share" width="30" height="30">
-  </button>
-
-  <div id="share-menu" style="display: none; position: absolute; top: 40px; right: 0; background: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 100;">
-    <button id="copy-link" style="display: block; margin-bottom: 8px; width: 100%;">Copy Link</button>
-    <button id="share-x" style="display: block; margin-bottom: 8px; width: 100%;">Share to X</button>
-    <button id="share-whatsapp" style="display: block; width: 100%;">Share to WhatsApp</button>
-  </div>
-</div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("share-toggle");
-    const menu = document.getElementById("share-menu");
-    const copyButton = document.getElementById("copy-link");
-    const shareX = document.getElementById("share-x");
-    const shareWhatsApp = document.getElementById("share-whatsapp");
-    const currentUrl = window.location.href;
-
-    toggle.addEventListener("click", () => {
-      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".share-wrapper")) {
-        menu.style.display = "none";
-      }
-    });
-
-    copyButton.addEventListener("click", () => {
-      navigator.clipboard.writeText(currentUrl).then(() => {
-        copyButton.textContent = "Copied!";
-        setTimeout(() => {
-          copyButton.textContent = "Copy Link";
-        }, 1500);
-      });
-    });
-
-    shareX.addEventListener("click", () => {
-      const shareText = encodeURIComponent("Check this out!");
-      const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${shareText}`;
-      window.open(shareUrl, '_blank');
-    });
-
-    shareWhatsApp.addEventListener("click", () => {
-      const shareText = encodeURIComponent(`Check this out: ${currentUrl}`);
-      const shareUrl = `https://api.whatsapp.com/send?text=${shareText}`;
-      window.open(shareUrl, '_blank');
-    });
-  });
-</script>
 <br>
   <!-- Footer -->
   <footer class="footer" style="text-align: center;">
