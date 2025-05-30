@@ -6,7 +6,7 @@ body {
 /* Links */
 a {
   text-decoration: none;
-  color: #999;
+  color: #08087F; /* Updated inactive link color */
 }
 
 a:hover {
@@ -119,7 +119,7 @@ nav ul li {
 }
 
 .nav-item a {
-  color: #999;
+  color: #08087F; /* Updated inactive nav link color */
   text-decoration: none;
 }
 
@@ -290,5 +290,3 @@ ul.posts li {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-
-Rewrite this code so inactive text links are #08087F this color
