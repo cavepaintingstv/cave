@@ -27,7 +27,7 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' }}">
-  <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, deep dives, and more!' }}">
+  <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' }}">
   <meta name="twitter:image" content="{{ page.og_image | default: site.baseurl | append: '/images/thumbnail.png' }}">
   <meta name="twitter:site" content="@cavepaintingstv">
 
@@ -220,5 +220,12 @@
       </li>
     </ul>
   </footer>
+
+  <!-- Disable Right-Click -->
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+  </script>
 </body>
 </html>
