@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Debug: Head section start -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="{{ page.description | default: 'Cave Paintings' }}">
-  <title>{{ page.title | default: "Cave Paintings" }}</title>
+  <meta name="description" content="{{ page.description | default: 'Cave Paintings' | escape }}">
+  <title>{{ page.title | default: "Cave Paintings" | escape }}</title>
 
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/favicon/favicon.svg">
-  <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="{{ site.baseurl }}/images/favicon/site.webmanifest">
+  <link rel="icon" type="image/png" href="{{ site.baseurl | default: '' }}/images/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="{{ site.baseurl | default: '' }}/images/favicon/favicon.svg">
+  <link rel="shortcut icon" href="{{ site.baseurl | default: '' }}/images/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl | default: '' }}/images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl | default: '' }}/images/favicon/site.webmanifest">
   <meta name="apple-mobile-web-app-title" content="Cave Paintings">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="{{ page.title | default: 'Cave Paintings' }}">
-  <meta property="og:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' }}">
-  <meta property="og:image" content="{{ page.og_image | default: site.baseurl | append: '/images/thumbnail.png' }}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
+  <meta property="og:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
+  <meta property="og:image" content="{{ page.og_image | default: site.baseurl | default: '' | append: '/images/thumbnail.png' }}">
+  <meta property="og:url" content="{{ site.url | default: '' }}{{ page.url | default: '' }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cave Paintings">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' }}">
-  <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' }}">
-  <meta name="twitter:image" content="{{ page.og_image | default: site.baseurl | append: '/images/thumbnail.png' }}">
+  <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
+  <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
+  <meta name="twitter:image" content="{{ page.og_image | default: site.baseurl | default: '' | append: '/images/thumbnail.png' }}">
   <meta name="twitter:site" content="@cavepaintingstv">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+  <link rel="stylesheet" href="{{ site.baseurl | default: '' }}/css/main.css">
   <style>
     #logo-container {
       padding-top: env(safe-area-inset-top, 60px);
@@ -52,7 +53,7 @@
 <body>
   <!-- Logo -->
   <div id="logo-container">
-    <a href="/"><img src="{{ site.baseurl }}/images/banner.png" alt="Cave Paintings Banner"></a>
+    <a href="/"><img src="{{ site.baseurl | default: '' }}/images/banner.png" alt="Cave Paintings Banner"></a>
   </div>
 
   <!-- Navigation -->
@@ -61,13 +62,13 @@
       <!-- Home Button -->
       <li class="nav-item">
         {% if page.url == "/" %}
-          <img src="{{ site.baseurl }}/images/buttons/HOME-DOWN.png" alt="Home" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-DOWN.png" alt="Home" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/">
-            <img src="{{ site.baseurl }}/images/buttons/HOME-UP.png" alt="Home" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/HOME-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/HOME-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}/">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png" alt="Home" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -76,13 +77,13 @@
       <!-- About Button -->
       <li class="nav-item">
         {% if page.url contains '/about' %}
-          <img src="{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png" alt="About" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-DOWN.png" alt="About" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/about">
-            <img src="{{ site.baseurl }}/images/buttons/ABOUT-UP.png" alt="About" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/ABOUT-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/ABOUT-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}/about">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png" alt="About" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -91,13 +92,13 @@
       <!-- Blog Button -->
       <li class="nav-item">
         {% if page.url contains '/blog' %}
-          <img src="{{ site.baseurl }}/images/buttons/BLOG-DOWN.png" alt="Blog" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-DOWN.png" alt="Blog" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/blog">
-            <img src="{{ site.baseurl }}/images/buttons/BLOG-UP.png" alt="Blog" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/BLOG-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/BLOG-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}/blog">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png" alt="Blog" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -106,13 +107,13 @@
       <!-- Animation Button -->
       <li class="nav-item">
         {% if page.url contains '/animation' %}
-          <img src="{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" width="86.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" width="86.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/animation">
-            <img src="{{ site.baseurl }}/images/buttons/ANIMATION-UP.png" alt="Animation" width="86.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/ANIMATION-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}/animation">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png" alt="Animation" width="86.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -121,13 +122,13 @@
       <!-- Podcast Button -->
       <li class="nav-item">
         {% if page.url contains '/podcast' or page.url contains '/radio' %}
-          <img src="{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" width="86.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" width="86.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}/podcast">
-            <img src="{{ site.baseurl }}/images/buttons/PODCAST-UP.png" alt="Podcast" width="86.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/PODCAST-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/PODCAST-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}/podcast">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png" alt="Podcast" width="86.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -136,13 +137,13 @@
       <!-- Patreon Button -->
       <li class="nav-item">
         {% if page.url contains '/patreon' %}
-          <img src="{{ site.baseurl }}/images/buttons/PATREON-DOWN.png" alt="Patreon" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png" alt="Patreon" width="57.8" height="21">
         {% else %}
           <a href="https://www.patreon.com/glasscake" target="_blank">
-            <img src="{{ site.baseurl }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/PATREON-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/PATREON-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/PATREON-UP.png'">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -151,13 +152,13 @@
       <!-- Merch Button -->
       <li class="nav-item">
         {% if page.url contains '/merch' %}
-          <img src="{{ site.baseurl }}/images/buttons/MERCH-DOWN.png" alt="Merch" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-DOWN.png" alt="Merch" width="57.8" height="21">
         {% else %}
           <a href="https://cavepaintings-shop.fourthwall.com/" target="_blank">
-            <img src="{{ site.baseurl }}/images/buttons/MERCH-UP.png" alt="Merch" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/MERCH-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/MERCH-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/MERCH-UP.png'">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png" alt="Merch" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -167,13 +168,13 @@
       <li class="nav-item">
         {% assign latest_post = site.posts | first %}
         {% if page.url == latest_post.url %}
-          <img src="{{ site.baseurl }}/images/buttons/LATEST-DOWN.png" alt="Latest" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-DOWN.png" alt="Latest" width="57.8" height="21">
         {% else %}
-          <a href="{{ site.baseurl }}{{ latest_post.url }}">
-            <img src="{{ site.baseurl }}/images/buttons/LATEST-UP.png" alt="Latest" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl }}/images/buttons/LATEST-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl }}/images/buttons/LATEST-UP.png'">
+          <a href="{{ site.baseurl | default: '' }}{{ latest_post.url | default: '' }}">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png" alt="Latest" width="57.8" height="21"
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -190,32 +191,32 @@
     <ul class="footer-list" style="list-style: none; padding: 0; display: inline-flex;">
       <li>
         <a href="mailto:cavepaintingsbiz@gmail.com" target="_blank">
-          <img src="{{ site.baseurl }}/images/mail.png" alt="Mail" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/mail.png" alt="Mail" width="30" height="30">
         </a>
       </li>
       <li>
         <a href="https://www.x.com/cavepaintingstv" target="_blank">
-          <img src="{{ site.baseurl }}/images/X.png" alt="X" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/X.png" alt="X" width="30" height="30">
         </a>
       </li>
       <li>
         <a href="https://www.youtube.com/glasscake" target="_blank">
-          <img src="{{ site.baseurl }}/images/youtube.png" alt="YouTube" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/youtube.png" alt="YouTube" width="30" height="30">
         </a>
       </li>
       <li>
         <a href="https://cavepaintings-shop.fourthwall.com/" target="_blank">
-          <img src="{{ site.baseurl }}/images/shirt.png" alt="Shop" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/shirt.png" alt="Shop" width="30" height="30">
         </a>
       </li>
       <li>
         <a href="https://discord.gg/hA52ZqJZD5" target="_blank">
-          <img src="{{ site.baseurl }}/images/discord.png" alt="Discord" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/discord.png" alt="Discord" width="30" height="30">
         </a>
       </li>
       <li>
         <a href="https://www.patreon.com/glasscake" target="_blank">
-          <img src="{{ site.baseurl }}/images/patreon.png" alt="Patreon" width="30" height="30">
+          <img src="{{ site.baseurl | default: '' }}/images/patreon.png" alt="Patreon" width="30" height="30">
         </a>
       </li>
     </ul>
