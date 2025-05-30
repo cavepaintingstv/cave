@@ -7,7 +7,7 @@ self.addEventListener('push', (event) => {
   }
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '{{ site.baseurl }}/images/assets/icon-192x192.png',
+    icon: '{{ site.baseurl }}/images/favicon.png',
   });
 });
 
