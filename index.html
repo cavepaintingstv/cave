@@ -2,18 +2,6 @@
 layout: default
 title: Cave Paintings
 ---
-<!--Pusher Beams-->
-<script src="https://js.pusher.com/beams/2.1.0/push-notifications-cdn.js"></script>
-<script>
-  const beamsClient = new PusherPushNotifications.Client({
-    instanceId: '6039fb8c-7983-4a01-81d5-66a0c9eb91db',
-  });
-
-  beamsClient.start()
-    .then(() => beamsClient.addDeviceInterest('hello'))
-    .then(() => console.log('Successfully registered and subscribed!'))
-    .catch(console.error);
-</script>
 <!--Content-->
 <div class="blurb">
     <h1></h1><br>
