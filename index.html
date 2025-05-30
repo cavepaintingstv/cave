@@ -5,10 +5,67 @@ title: Cave Paintings
 <!--Content-->
 <div class="blurb">
     <h1></h1><br>
-    <div id="ftr-container" style="text-align: center;"><img src="{{ site.baseurl }}/images/assets/Trio.png" alt="Interlopers" border="1" width="3972" height="3172">
+    <div id="ftr-container" style="text-align: center;">
+        <img src="{{ site.baseurl }}/images/Trio.png" alt="Interlopers" border="1" width="3972" height="3172">
+    </div>
 
     {% assign latest_post = site.posts | first %}
     <div style="text-align: right;">
-        <p><a href="{{ site.baseurl }}{{ latest_post.url }}">Latest post »</a></p> <!-- Link to the latest post -->
+        <p><a href="{{ site.baseurl }}{{ latest_post.url }}">Latest post »</a></p>
+    </div>
+
+    <!-- Push Notification Subscription Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button id="subscribeButton">Enable Notifications</button>
+    </div>
+    <!-- iOS-Specific Prompt (Informational) -->
+    <div id="iosPrompt" style="text-align: center; margin-top: 10px; display: none;">
+        <p>Add this PWA to your Home Screen to enable notifications (Safari, iOS 16.4+). Note: iOS notifications require setup in the future.</p>
     </div>
 </div>
+
+<!-- OneSignal SDK -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<!-- Inline JavaScript for Service Worker and OneSignal -->
+<script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('{{ site.baseurl }}/OneSignalSDKWorker.js')
+            .then((registration) => console.log('Service Worker registered'))
+            .catch((error) => console.error('Service Worker registration failed:', error));
+    }
+
+    // iOS Prompt (Informational)
+    if (navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('iPad')) {
+        document.getElementById('iosPrompt').style.display = 'block';
+    }
+
+    // OneSignal Initialization and Subscription
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: '5894891c-f6bc-43fc-b056-d20e56195213',
+            notifyButton: {
+                enable: false
+            }
+        });
+
+        // Subscribe to notifications
+        document.getElementById('subscribeButton').addEventListener('click', async () => {
+            try {
+                const permission = await Notification.requestPermission();
+                if (permission === 'granted') {
+                    await OneSignal.registerForPushNotifications();
+                    await OneSignal.setSubscription(true);
+                    console.log('Subscribed to push notifications');
+                    alert('Notifications enabled! You will be notified of new posts.');
+                } else {
+                    alert('Notification permission denied.');
+                }
+            } catch (error) {
+                console.error('Subscription failed:', error);
+                alert('Failed to enable notifications. Please try again.');
+            }
+        });
+    });
+</script>
