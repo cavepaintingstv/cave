@@ -1,12 +1,14 @@
-/* Global Styles */
+/* ------------------------------
+   Global Styles
+------------------------------ */
 body {
-  background-color: #000; /* Black background */
+  background-color: #000;
 }
 
 /* Links */
 a {
-  text-decoration: none;
   color: #999;
+  text-decoration: none;
 }
 
 a:hover {
@@ -14,80 +16,79 @@ a:hover {
 }
 
 a:active {
-  color: #ff4500; /* Infrared-ish orange */
+  color: #ff4500;
 }
 
-/* Page Scaling */
-@media (min-width: 978px) {
-  body {
-    margin: auto;
-    width: 70%;
-    max-width: 960px;
-  }
-}
-
-@media (max-width: 978px) {
-  body {
-    margin: auto;
-    width: 95%;
-    max-width: 960px;
-  }
-}
-
-/* Font Scaling */
-/* h1 */
-@media all and (min-width: 960px) {
-  h1 {
-    font-size: 3em;
-    color: #fff; /* White title */
-  }
-}
-
-@media all and (max-width: 959px) and (min-width: 600px) {
-  h1 {
-    font-size: 5vw;
-    color: #fff; /* White title */
-  }
-}
-
-@media all and (max-width: 599px) and (min-width: 50px) {
-  h1 {
-    font-size: 6vw;
-    color: #fff; /* White title */
-  }
-}
-
-/* Fonts */
-p,
-ul {
-  font-size: 1.5em;
-  line-height: 1.4em;
-  color: #ccc; /* Lighter grey content text */
-}
-
-h1,
-h2,
-h3,
-h4 {
+/* Typography */
+h1, h2, h3, h4 {
   font-family: "Helvetica";
+  color: #fff;
+}
+
+h2, h3, h4 {
+  color: #ccc;
+}
+
+h1 {
+  font-size: 3em;
 }
 
 h2 {
   font-size: 2.7em;
-  color: #ccc; /* Lighter grey content text */
 }
 
 h3 {
   font-size: 2.3em;
-  color: #ccc; /* Lighter grey content text */
 }
 
 h4 {
   font-size: 1.9em;
-  color: #ccc; /* Lighter grey content text */
 }
 
-/* Navigation */
+p,
+ul {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #ccc;
+}
+
+/* ------------------------------
+   Layout & Containers
+------------------------------ */
+header {
+  border-top: 1px solid #d5d5d5;
+  font-size: 0.8em;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid #d5d5d5;
+  font-size: 0.8em;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  font-size: 1em;
+  font-family: "Helvetica", "Arial", "Sans-Serif";
+  font-weight: bold;
+}
+
+footer ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* ------------------------------
+   Navigation
+------------------------------ */
 .main-nav {
   width: 100%;
   padding: 10px 0;
@@ -136,20 +137,24 @@ nav ul li {
 }
 
 .nav-divider {
-  margin: 0 4px;
   font-size: 1em;
-  color: #333;
   font-weight: bold;
+  color: #333;
+  margin: 0 4px;
 }
 
-/* Adjust navigation for smaller screens */
+/* ------------------------------
+   Responsive Navigation
+------------------------------ */
 @media (max-width: 600px) {
   nav ul {
     justify-content: center;
   }
+
   .nav-item {
     margin: 4px 6px;
   }
+
   .nav-divider {
     margin: 4px 3px;
   }
@@ -159,97 +164,94 @@ nav ul li {
   .nav-item {
     margin: 3px 5px;
   }
+
   .nav-divider {
     margin: 3px 2px;
   }
 }
 
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 0;
-  border-top: 1px solid #d5d5d5;
-  font-size: 0.8em;
+/* ------------------------------
+   Responsive Layout
+------------------------------ */
+@media (min-width: 978px) {
+  body {
+    margin: auto;
+    width: 70%;
+    max-width: 960px;
+  }
 }
 
-footer ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style-type: none;
-  margin: auto;
-  padding: 0;
-  font-size: 1em;
-  font-family: "Helvetica", "Arial", "Sans-Serif";
-  font-weight: bold;
+@media (max-width: 978px) {
+  body {
+    margin: auto;
+    width: 95%;
+    max-width: 960px;
+  }
 }
 
-footer ul li {
-  display: inline-block;
-  margin: 0 10px;
+/* ------------------------------
+   Responsive Font Scaling
+------------------------------ */
+@media all and (min-width: 960px) {
+  h1 {
+    font-size: 3em;
+  }
 }
 
-header {
-  border-top: 1px solid #d5d5d5;
-  font-size: 0.8em;
+@media all and (max-width: 959px) and (min-width: 600px) {
+  h1 {
+    font-size: 5vw;
+  }
 }
 
-/* Banner */
-#logo-container img {
-  max-width: 960px;
-  width: 100%;
-  height: auto;
+@media all and (max-width: 599px) and (min-width: 50px) {
+  h1 {
+    font-size: 6vw;
+  }
+}
+
+/* ------------------------------
+   Media and Images
+------------------------------ */
+#logo-container img,
+#ftr-container img,
+#video-container video,
+#cmc-container img,
+#img-container img {
   display: block;
   margin: 0 auto;
+  width: 100%;
+  height: auto;
 }
 
-/* Image Pixelator */
+#logo-container img {
+  max-width: 960px;
+}
+
+#ftr-container img {
+  max-width: 100%;
+  width: auto;
+}
+
+#img-container img {
+  max-width: 537px;
+  width: 537px;
+}
+
+#cmc-container img {
+  max-width: 438px;
+}
+
 .pixelated-image {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
-/* Feature Scaler */
-#ftr-container img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Image Scaler */
-#img-container img {
-  max-width: 537px;
-  width: 537px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Comic Scaler */
-#cmc-container img {
-  max-width: 438px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Video Embed Scaler */
-#video-container video {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Blog */
+/* ------------------------------
+   Blog
+------------------------------ */
 ul.posts {
-  margin: 0px auto 0px;
+  margin: 0 auto;
   font-size: 1.5em;
   text-align: center;
 }
@@ -259,19 +261,21 @@ ul.posts li {
   display: inline-block;
 }
 
-/* Contact */
+/* ------------------------------
+   Contact Section
+------------------------------ */
 .contact {
-  margin: 0px 0px 60px;
+  margin: 0 0 60px;
 }
 
 .contact h1 {
   font-size: 3em;
-  color: #fff; /* White title */
+  color: #fff;
 }
 
 .contact h2 {
   font-size: 2em;
-  color: #ccc; /* Lighter grey content text */
+  color: #ccc;
 }
 
 .contact address,
@@ -282,7 +286,7 @@ ul.posts li {
 .contact address,
 .cv p {
   font-size: 1.2em;
-  color: #ccc; /* Lighter grey content text */
+  color: #ccc;
 }
 
 .contact .download {
@@ -290,5 +294,3 @@ ul.posts li {
   font-size: 0.8em;
   text-transform: uppercase;
 }
-
-Rewrite this code so inactive text links are #08087F this color
