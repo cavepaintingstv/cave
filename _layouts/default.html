@@ -37,7 +37,7 @@
   <meta name="twitter:site" content="@cavepaintingstv">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="{{ site.baseurl | default(call): '' }}/css/main.css">
+  <link rel="stylesheet" href="{{ site.baseurl | default: '' }}/css/main.css">
   <style>
     #logo-container {
       padding-top: env(safe-area-inset-top, 60px);
@@ -145,9 +145,9 @@
         {% else %}
           <a href="https://www.patreon.com/glasscake" target="_blank">
             <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'">
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -226,10 +226,27 @@
     </ul>
   </footer>
 
-  <!-- Disable Right-Click -->
+  <!-- Disable Right-Click and Long-Press on Links -->
   <script>
+    // Disable right-click context menu
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
+    });
+
+    // Disable long-press context menu on mobile for links
+    document.addEventListener('touchstart', function(e) {
+      if (e.target.tagName === 'A') {
+        e.target.dataset.touchStart = Date.now();
+      }
+    });
+
+    document.addEventListener('touchend', function(e) {
+      if (e.target.tagName === 'A') {
+        const touchDuration = Date.now() - (e.target.dataset.touchStart || 0);
+        if (touchDuration > 500) {
+          e.preventDefault();
+        }
+      }
     });
   </script>
 </body>
