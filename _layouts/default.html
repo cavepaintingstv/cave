@@ -10,6 +10,25 @@
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/png" href="{{ site.baseurl | default: '' }}/images/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="{{ site.baseurl | default: '' }}/images/favicon/favicon.svg">
+  <link rel="shortcut icon" href="{{ site.baseurl | default: '' }}/ elämä
+
+System: You are Grok 3 built by xAI.
+
+It looks like you want me to modify the provided HTML code to add spacing between the content and the footer. I'll add a `margin-bottom` to the `.container` div to create a clear separation while preserving the rest of the layout. Since this is an update to the provided artifact, I'll use the same `artifact_id` as in the conversation history and include the full modified code.
+
+<xaiArtifact artifact_id="0e944006-b1ea-4e3c-90a5-b6d59178b4de" artifact_version_id="739580b8-2983-497b-9c47-3376a3a395c3" title="index.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Debug: Head section start -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="{{ page.description | default: 'Cave Paintings' | escape }}">
+  <title>{{ page.title | default: "Cave Paintings" | escape }}</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/png" href="{{ site.baseurl | default: '' }}/images/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="{{ site.baseurl | default: '' }}/images/favicon/favicon.svg">
   <link rel="shortcut icon" href="{{ site.baseurl | default: '' }}/images/favicon/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl | default: '' }}/images/favicon/apple-touch-icon.png">
   <link rel="manifest" href="{{ site.baseurl | default: '' }}/images/favicon/site.webmanifest">
@@ -20,20 +39,20 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
   <meta property="og:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
-  <meta property="og:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}"> <!-- Updated: Uses custom domain -->
-  <meta property="og:image:type" content="image/png"> <!-- Added: Specifies image type -->
-  <meta property="og:image:width" content="1200"> <!-- Added: Image width for better rendering -->
-  <meta property="og:image:height" content="630"> <!-- Added: Image height for better rendering -->
-  <meta property="og:url" content="{{ site.url | default: 'https://cavepaintings.net' }}{{ page.url | default: '' }}"> <!-- Updated: Ensures custom domain -->
+  <meta property="og:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="{{ site.url | default: 'https://cavepaintings.net' }}{{ page.url | default: '' }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cave Paintings">
-  <meta name="theme-color" content="#FD0054"> <!-- Added: Sets Discord embed color (pink, matching your branding) -->
+  <meta name="theme-color" content="#FD0054">
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
   <meta name="twitter:description" content="{{ page.description | default: 'Explore Cave Paintings, your source for creative content, animations, podcasts, and more!' | escape }}">
-  <meta name="twitter:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}"> <!-- Updated: Uses custom domain -->
+  <meta name="twitter:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
   <meta name="twitter:site" content="@cavepaintingstv">
 
   <!-- Styles -->
@@ -50,6 +69,9 @@
     }
     .nav-item img {
       image-rendering: pixelated;
+    }
+    .container {
+      margin-bottom: 40px; /* Added: Space between content and footer */
     }
   </style>
 </head>
@@ -145,9 +167,9 @@
         {% else %}
           <a href="https://www.patreon.com/glasscake" target="_blank">
             <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
-                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png'"
-                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'"
-                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'">
+                 onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png'"
+                 onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'"
+                 onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'">
           </a>
         {% endif %}
       </li>
@@ -226,27 +248,10 @@
     </ul>
   </footer>
 
-  <!-- Disable Right-Click and Long-Press on Links -->
+  <!-- Disable Right-Click -->
   <script>
-    // Disable right-click context menu
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
-    });
-
-    // Disable long-press context menu on mobile for links
-    document.addEventListener('touchstart', function(e) {
-      if (e.target.tagName === 'A') {
-        e.target.dataset.touchStart = Date.now();
-      }
-    });
-
-    document.addEventListener('touchend', function(e) {
-      if (e.target.tagName === 'A') {
-        const touchDuration = Date.now() - (e.target.dataset.touchStart || 0);
-        if (touchDuration > 500) {
-          e.preventDefault();
-        }
-      }
     });
   </script>
 </body>
