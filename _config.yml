@@ -5,3 +5,6 @@ paginate: 1  # Enables pagination with one post per page
 paginate_path: "/media/:categories/:num/"  # Numeric pagination within each tag
 baseurl: ""  # Set this for sites hosted under /cave
 url: "https://www.cavepaintings.net"  # Set to your custom domain
+title: "Cave Paintings"
+description: "Animations, podcasts, livestreams and more!"
+og_image: "/images/thumbnail.png"
