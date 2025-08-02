@@ -4,8 +4,12 @@
   <!-- Debug: Head section start -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="{{ page.description | default: 'Cave Paintings' | escape }}">
-  <title>{{ page.title | default: "Cave Paintings" | escape }}</title>
+  <!-- Optimized meta description with brand keyword -->
+  <meta name="description" content="{{ page.description | default: 'Discover Cave Paintings: Art, animations, and podcasts.' | truncate: 160 | escape }}">
+  <!-- Optimized title with brand keyword -->
+  <title>{{ page.title | default: 'Cave Paintings - Art, Animations, Podcasts' | escape }}</title>
+  <!-- Keyword-rich meta keywords (optional, minimal SEO impact but useful for some engines) -->
+  <meta name="keywords" content="Cave Paintings, art, animations, podcasts, creativity, storytelling">
 
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/png" href="{{ site.baseurl | default: '' }}/images/favicon/favicon-96x96.png" sizes="96x96">
@@ -17,9 +21,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
-  <meta property="og:description" content="{{ page.description | default: 'Cave Paintings, Est. Year' | escape }}">
+  <!-- Open Graph Meta Tags for social sharing -->
+  <meta property="og:title" content="{{ page.title | default: 'Cave Paintings - Art, Animations, Podcasts' | escape }}">
+  <meta property="og:description" content="{{ page.description | default: 'Discover Cave Paintings: Art, animations, and podcasts.' | truncate: 160 | escape }}">
   <meta property="og:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
@@ -29,12 +33,36 @@
   <meta property="og:site_name" content="Cave Paintings">
   <meta name="theme-color" content="#FD0054">
 
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter Card Meta Tags for social sharing -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings' | escape }}">
-  <meta name="twitter:description" content="{{ page.description | default: 'Cave Paintings, Est. Year'  | escape }}">
+  <meta name="twitter:title" content="{{ page.title | default: 'Cave Paintings - Art, Animations, Podcasts' | escape }}">
+  <meta name="twitter:description" content="{{ page.description | default: 'Discover Cave Paintings: Art, animations, and podcasts.' | truncate: 160 | escape }}">
   <meta name="twitter:image" content="{{ page.og_image | default: 'https://cavepaintings.net/images/thumbnail.png' }}">
   <meta name="twitter:site" content="@cavepaintingstv">
+
+  <!-- Enhanced Schema.org for WebSite and SearchAction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cave Paintings",
+    "url": "https://cavepaintings.net",
+    "description": "Discover Cave Paintings: Art, animations, and podcasts.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cave Paintings",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cavepaintings.net/images/favicon/favicon.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cavepaintings.net/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ site.baseurl | default: '' }}/css/main.css">
@@ -51,7 +79,7 @@
     .nav-item img {
       image-rendering: pixelated;
     }
-    /* Added: Prevent text selection and context menu */
+    /* Prevent text selection and context menu */
     body {
       -webkit-user-select: none;
       user-select: none;
@@ -62,21 +90,21 @@
 </head>
 
 <body>
-  <!-- Logo -->
+  <!-- Logo with optimized alt text -->
   <div id="logo-container">
-    <a href="/"><img src="{{ site.baseurl | default: '' }}/images/banner.png" alt="Cave Paintings Banner"></a>
+    <a href="/"><img src="{{ site.baseurl | default: '' }}/images/banner.png" alt="Cave Paintings Creative Banner" loading="lazy"></a>
   </div>
 
-  <!-- Navigation -->
+  <!-- Navigation with keyword-rich alt text -->
   <nav class="main-nav" style="text-align: center;">
     <ul class="nav-list">
       <!-- Home Button -->
       <li class="nav-item">
         {% if page.url == "/" %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-DOWN.png" alt="Home" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-DOWN.png" alt="Cave Paintings Home" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}/">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png" alt="Home" width="57.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}/" title="Cave Paintings Home">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png" alt="Cave Paintings Home" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/HOME-UP.png'">
@@ -88,10 +116,10 @@
       <!-- About Button -->
       <li class="nav-item">
         {% if page.url contains '/about' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-DOWN.png" alt="About" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-DOWN.png" alt="About Cave Paintings" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}/about">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png" alt="About" width="57.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}/about" title="About Cave Paintings">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png" alt="About Cave Paintings" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/ABOUT-UP.png'">
@@ -103,10 +131,10 @@
       <!-- Blog Button -->
       <li class="nav-item">
         {% if page.url contains '/blog' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-DOWN.png" alt="Blog" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-DOWN.png" alt="Cave Paintings Blog" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}/blog">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png" alt="Blog" width="57.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}/blog" title="Cave Paintings Blog">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png" alt="Cave Paintings Blog" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/BLOG-UP.png'">
@@ -118,10 +146,10 @@
       <!-- Animation Button -->
       <li class="nav-item">
         {% if page.url contains '/animation' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-DOWN.png" alt="Animation" width="86.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-DOWN.png" alt="Cave Paintings Animations" width="86.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}/animation">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png" alt="Animation" width="86.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}/animation" title="Cave Paintings Animations">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png" alt="Cave Paintings Animations" width="86.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/ANIMATION-UP.png'">
@@ -133,10 +161,10 @@
       <!-- Podcast Button -->
       <li class="nav-item">
         {% if page.url contains '/podcast' or page.url contains '/radio' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png" alt="Podcast" width="86.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png" alt="Cave Paintings Podcast" width="86.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}/podcast">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png" alt="Podcast" width="86.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}/podcast" title="Cave Paintings Podcast">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png" alt="Cave Paintings Podcast" width="86.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PODCAST-UP.png'">
@@ -148,10 +176,10 @@
       <!-- Patreon Button -->
       <li class="nav-item">
         {% if page.url contains '/patreon' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png" alt="Patreon" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png" alt="Support Cave Paintings on Patreon" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="https://www.patreon.com/glasscake" target="_blank">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Patreon" width="57.8" height="21"
+          <a href="https://www.patreon.com/glasscake" target="_blank" title="Support Cave Paintings on Patreon">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png" alt="Support Cave Paintings on Patreon" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/PATREON-UP.png'">
@@ -163,10 +191,10 @@
       <!-- Merch Button -->
       <li class="nav-item">
         {% if page.url contains '/merch' %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-DOWN.png" alt="Merch" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-DOWN.png" alt="Cave Paintings Merch Shop" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="https://shop.cavepaintings.net" target="_blank">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png" alt="Merch" width="57.8" height="21"
+          <a href="https://shop.cavepaintings.net" target="_blank" title="Cave Paintings Merch Shop">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png" alt="Cave Paintings Merch Shop" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/MERCH-UP.png'">
@@ -179,10 +207,10 @@
       <li class="nav-item">
         {% assign latest_post = site.posts | first %}
         {% if page.url == latest_post.url %}
-          <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-DOWN.png" alt="Latest" width="57.8" height="21">
+          <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-DOWN.png" alt="Latest Cave Paintings Post" width="57.8" height="21" loading="lazy">
         {% else %}
-          <a href="{{ site.baseurl | default: '' }}{{ latest_post.url | default: '' }}">
-            <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png" alt="Latest" width="57.8" height="21"
+          <a href="{{ site.baseurl | default: '' }}{{ latest_post.url | default: '' }}" title="Latest Cave Paintings Post">
+            <img src="{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png" alt="Latest Cave Paintings Post" width="57.8" height="21" loading="lazy"
                  onmousedown="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-DOWN.png'"
                  onmouseup="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png'"
                  onmouseout="this.src='{{ site.baseurl | default: '' }}/images/buttons/LATEST-UP.png'">
@@ -192,42 +220,44 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main Content with SEO-friendly placeholder -->
   <div class="container">
+    <h1>{{ page.h1 | default: 'Welcome to Cave Paintings: Art, Animations, Podcasts' | escape }}</h1>
     {{ content }}
   </div>
-<br>
-  <!-- Footer -->
+  <br>
+
+  <!-- Footer with optimized alt text -->
   <footer class="footer" style="text-align: center;">
     <ul class="footer-list" style="list-style: none; padding: 0; display: inline-flex;">
       <li>
-        <a href="mailto:contact@cavepaintings.net" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/mail.png" alt="Mail" width="30" height="30">
+        <a href="mailto:contact@cavepaintings.net" target="_blank" title="Contact Cave Paintings">
+          <img src="{{ site.baseurl | default: '' }}/images/mail.png" alt="Cave Paintings Email Contact" width="30" height="30" loading="lazy">
         </a>
       </li>
       <li>
-        <a href="https://www.x.com/cavepaintingstv" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/X.png" alt="X" width="30" height="30">
+        <a href="https://www.x.com/cavepaintingstv" target="_blank" title="Cave Paintings on X">
+          <img src="{{ site.baseurl | default: '' }}/images/X.png" alt="Cave Paintings on X" width="30" height="30" loading="lazy">
         </a>
       </li>
       <li>
-        <a href="https://www.youtube.com/glasscake" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/youtube.png" alt="YouTube" width="30" height="30">
+        <a href="https://www.youtube.com/glasscake" target="_blank" title="Cave Paintings YouTube">
+          <img src="{{ site.baseurl | default: '' }}/images/youtube.png" alt="Cave Paintings YouTube Channel" width="30" height="30" loading="lazy">
         </a>
       </li>
       <li>
-        <a href="https://shop.cavepaintings.net" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/shirt.png" alt="Shop" width="30" height="30">
+        <a href="https://shop.cavepaintings.net" target="_blank" title="Cave Paintings Merch">
+          <img src="{{ site.baseurl | default: '' }}/images/shirt.png" alt="Cave Paintings Merch Shop" width="30" height="30" loading="lazy">
         </a>
       </li>
       <li>
-        <a href="https://discord.gg/hA52ZqJZD5" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/discord.png" alt="Discord" width="30" height="30">
+        <a href="https://discord.gg/hA52ZqJZD5" target="_blank" title="Cave Paintings Discord">
+          <img src="{{ site.baseurl | default: '' }}/images/discord.png" alt="Cave Paintings Discord Community" width="30" height="30" loading="lazy">
         </a>
       </li>
       <li>
-        <a href="https://www.patreon.com/glasscake" target="_blank">
-          <img src="{{ site.baseurl | default: '' }}/images/patreon.png" alt="Patreon" width="30" height="30">
+        <a href="https://www.patreon.com/glasscake" target="_blank" title="Support Cave Paintings on Patreon">
+          <img src="{{ site.baseurl | default: '' }}/images/patreon.png" alt="Support Cave Paintings on Patreon" width="30" height="30" loading="lazy">
         </a>
       </li>
     </ul>
@@ -272,7 +302,6 @@
           link.addEventListener('click', function(e) {
             const touchDuration = Date.now() - (parseInt(this.dataset.touchStart) || 0);
             if (touchDuration < 500) {
-              // Allow normal navigation for short taps
               return true;
             }
             e.preventDefault();
