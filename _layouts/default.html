@@ -222,7 +222,7 @@
 
   <!-- Main Content with SEO-friendly placeholder -->
   <div class="container">
-    <h1>{{ page.h1 | default: '<!-- Main Title here -->' | escape }}</h1>
+    <h1>{{ page.h1 | default: '' | escape }}</h1>
     {{ content }}
   </div>
   <br>
